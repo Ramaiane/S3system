@@ -20,8 +20,7 @@ class ConexaoBanco {
     private $sql;
     
     function conectar(){
-        $con = mysql_connect($this->host, $this->user, $this->pass, 
-        $this->db, $this->sql);
+        $con = mysql_connect($this->host, $this->user, $this->pass, $this->db, $this->sql);
         return $con;
     }
     function selecionarDB(){
