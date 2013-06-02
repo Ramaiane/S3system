@@ -5,8 +5,8 @@
         <title></title>
     </head>
     <body>
-        <?php
-        // put your code here
+       <?php
+            echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL=../interface/index.html'>";
         ?>
     </body>
 </html>
