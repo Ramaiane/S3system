@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
 <title>S3 System</title>
-<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" type="text/css" href="../style.css" />
 </head>
 <body>
 
@@ -26,25 +26,32 @@
     <div class="center_content">
     
      	<div class="center_left">
-            <div class="title_welcome"><span class="red">S3 System</span> <a href="../interface/cadastro/cadastroCandidato.php">Conta para <b>Candidato</b></a></div>
-            <div class="welcome_box">
+            <div class="title_welcome"><span class="red">Formul&aacute;rio</span> de Cadastro de Candidato</div>
+            
             <p class="welcome">
-<span class="orange">Desenvolvido para os Programas de Pós Graduação da UnB </span><br />
-Tendo em mente a dinâmica do processo setivo para alunos especiais, o S3 System foi desenvolvido com o objetivo de facilitar a vida de quem organiza e de
-quem participa das seleções. O sistema conta com todos os relatórios necessários para formalização, bem como o ambiente de avaliação para os professores.
-			</p>
+                <span class="orange">Preencha adequadamente todas as informa&ccedil;&otilde;es abaixo: </span><br />
+<form action="../../controle/controleCadastroCandidato.php" method="post"></br>
+    <label class="login_label">Login:</label><input type="text" name="login" class="login_input" required/> <a>  Nome da conta para acesso ao sistema</a>
+    </br></br><label class="login_label">Nome:</label><input type="text" name="nomeCompleto" class="login_input" required/> 
+    </br></br><label class="login_label">Senha:</label><input type="password" name="senha1" class="login_input" required/> 
+    </br></br><label class="login_label">Repita Senha:</label><input type="password" name="senha2" class="login_input" required/> 
+    </br></br>
+    </br></br><label class="login_label">CPF:</label><input type="text" name="cpf" class="login_input" required/>
+    </br></br><label class="login_label">Email:</label><input type="email" name="email" class="login_input" required/>
+    </br></br><label class="login_label">Telefone:</label><input type="tel" name="telefone" class="login_input" required/>
+    </br></br><label class="login_label">Conclus&atilde;o Gradua&ccedil;&atilde;o</label><input type="month" name="conclusao" required/>
+    </br></br>
+    </br></br>            
+    <input type="image" src="../../interface/images/botaoCadastrar.gif" class="login" />
+</form>
+
+            </p>
            <!-- <a href="#" class="read_more">Leia Mais</a>  -->        
-            </div>
+          
         
-         <div class="title_welcome"><span class="red">S3 System</span> <a href="../interface/cadastro/cadastroSecretaria.php">Conta para <b>Secretaria</b> de PPG</a></div>
-            <div class="welcome_box">
-            <p class="welcome">
-<span class="orange">Desenvolvido para os Programas de Pós Graduação da UnB </span><br />
-Tendo em mente a dinâmica do processo seletivo para alunos especiais, o S3 System foi desenvolvido com o objetivo de facilitar a vida de quem organiza e de
-quem participa das seleções. O sistema conta com todos os relatórios necessários para formalização, bem como o ambiente de avaliação para os professores.
-			</p>
-                
-            </div>
+         
+            
+            
          <!--
          <div class="features">   
             <div class="title">Latest News</div>

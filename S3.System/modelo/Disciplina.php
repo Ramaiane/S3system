@@ -8,7 +8,7 @@
  */
 class Disciplina {
     
-    //put your code here
+    //atributos
     private $orgao;
     private $codigo;
     private $denomicacao;
@@ -23,7 +23,24 @@ class Disciplina {
     private $ementa;
     private $inscricao;
     
-    
+    //método construtor
+    public function __construct($orgao, $codigo, $denominacao, $nivel, $vigencia, $preRequisitos, 
+            $turma, $numeroVagas, $turno, $horario, $numeroCreditos, $ementa, $inscricao) {
+        $this-> orgao= $orgao; 
+        $this-> codigo= $codigo;
+        $this-> denominacao= $denominacao;
+        $this-> nivel= $nivel;
+        $this-> vigencia= $vigencia;
+        $this-> preRequisitos= $preRequisitos;
+        $this-> turma= $turma;
+        $this-> numeroVagas= $numeroVagas;
+        $this-> turno= $turno;
+        $this-> numeroCreditos= $numeroCreditos;
+        $this-> horario= $horario;
+        $this-> ementa= $ementa;
+        $this-> inscricao= $inscricao;
+        
+    }
     
     // setters e getters
     public function setOrgao ($orgao) {
@@ -118,7 +135,5 @@ class Disciplina {
         return $this->inscricao;
     }
     
-    
-  
 }
 ?>
