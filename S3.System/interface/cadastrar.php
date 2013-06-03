@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+<title>S3 System</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<div id="main_container">
+    <!--
+    <div id="header">
+    	<div class="logo"><img src="" border="0" alt="" title="" /></div>       
+    </div>
+    -->
+    
+        <div class="menu">
+        	<ul>                                                                         
+        	<li class="selected"><a href="../interface/index.html">Home</a></li>
+                <li><a href="#">Parceiros</a></li>
+                <li><a href="#">Documentação</a></li>
+                
+        	</ul>
+        </div>
+        
+    <div class="center_content">
+    
+     	<div class="center_left">
+            <div class="title_welcome"><span class="red">S3 System</span> <a href="../interface/cadastro/cadastroCandidato.html">Conta para <b>Candidato</b></a></div>
+            <div class="welcome_box">
+            <p class="welcome">
+<span class="orange">Desenvolvido para os Programas de Pós Graduação da UnB </span><br />
+Tendo em mente a dinâmica do processo setivo para alunos especiais, o S3 System foi desenvolvido com o objetivo de facilitar a vida de quem organiza e de
+quem participa das seleções. O sistema conta com todos os relatórios necessários para formalização, bem como o ambiente de avaliação para os professores.
+			</p>
+           <!-- <a href="#" class="read_more">Leia Mais</a>  -->        
+            </div>
+        
+         <div class="title_welcome"><span class="red">S3 System</span> <a href="../interface/cadastro/cadastroSecretaria.html">Conta para <b>Secretaria</b> de PPG</a></div>
+            <div class="welcome_box">
+            <p class="welcome">
+<span class="orange">Desenvolvido para os Programas de Pós Graduação da UnB </span><br />
+Tendo em mente a dinâmica do processo setivo para alunos especiais, o S3 System foi desenvolvido com o objetivo de facilitar a vida de quem organiza e de
+quem participa das seleções. O sistema conta com todos os relatórios necessários para formalização, bem como o ambiente de avaliação para os professores.
+			</p>
+                
+            </div>
+         <!--
+         <div class="features">   
+            <div class="title">Latest News</div>
+                <div class="news_box">
+                    <div class="news_icon"></div>
+                    <div class="news_content">
+                    “Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                    </div>   
+                </div>
+                <div class="news_box">
+                    <div class="news_icon"></div>
+                    <div class="news_content">
+                    “Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                    </div>   
+                </div>       
+
+         </div> 
+         
+    
+           
+            
+            
+        </div> 
+        -->
+        
+        <div class="center_right">
+         <!--
+        <div class="software_box"><img src="images/3dbox.gif" alt="" title="" /></div> 
+        <form action="../controle/controleLogin.php" method="post">
+                        <div class="text_box">
+                        <div class="title">Login</div>
+                            <div class="login_form_row">
+                            <label class="login_label">Login:</label><input type="text" name="login" class="login_input" required/>
+                            </div>
+                            
+                            <div class="login_form_row">
+                            <label class="login_label">Senha:</label><input type="password" name="senha" class="login_input" required/>
+                            </div>                                     
+                            <input type="image" src="images/botaoLogin.gif" class="login" />                              
+                        
+                        </div>
+        </form>
+        
+                        <div class="testimonials">
+                        	<div class="title">Crie sua conta</div>
+                            <div class="text_box">
+                             <p class="testimonial">
+                             Organizar e participar de um processo seletivo de alunos especiais se tornou muito fácil. Crie agora mesmo sua conta
+                             e aproveite as facilidades desta ferramenta totalmente virtual!<br />
+                            
+                             <form action="../interface/cadastrar.php"><input type="image" src="images/botaoCadastrar.gif" class="login" /></form>
+                             </p>
+                            
+                            
+                            </div>                    
+                         -->
+                         
+                         
+                        </div>
+  
+ 
+        </div>  
+              
+
+        <div class="clear"></div> 
+    
+    </div>    
+
+    
+    <div id="footer">                                              
+        <div class="left_footer"><a href="#">S3 System, 2013</a> <a href="#">Reporte Um Erro</a></div>
+        <div class="right_footer"><a href="http://csstemplatesmarket.com"  target="_blank"><img src="images/csstemplatesmarket.gif" border="0" alt="" title="" /></a>
+        </div>   
+    
+    </div>
+    
+    
+    
+</div>
+<!-- end of main_container -->
+
+</body>
+</html>
