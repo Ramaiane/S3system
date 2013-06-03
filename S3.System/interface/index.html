@@ -29,20 +29,21 @@
         	<div class="title_welcome"><span class="red">S3 System</span> Seleção de Alunos Especiais</div>
             <div class="welcome_box">
             <p class="welcome">
-<span class="orange">Lorem ipsum dolor sit amet, consectetur adipisicing elit </span><br />
-Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+<span class="orange">Desenvolvido para os Programas de Pós Graduação da UnB </span><br />
+Tendo em mente a dinâmica do processo setivo para alunos especiais, o S3 System foi desenvolvido com o objetivo de facilitar a vida de quem organiza e de
+quem participa das seleções. O sistema conta com todos os relatórios necessários para formalização, bem como o ambiente de avaliação para os professores.
 			</p>
-            <a href="#" class="read_more">read more</a>          
+           <!-- <a href="#" class="read_more">Leia Mais</a>  -->        
             </div>
          
          <div class="features">   
-            <div class="title">Main features</div>
+            <div class="title">Como participar de um Processo Seletivo?</div>
             
                     <ul class="list">
-                    <li><span>1</span><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</a></li>
-                    <li><span>2</span><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</a></li>
-                    <li><span>3</span><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</a></li>
-                    <li><span>4</span><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</a></li>
+                    <li><span>1</span><a href="#">Crie sua conta clicando no botão <strong>Cadastrar</strong> ao lado</a></li>
+                    <li><span>2</span><a href="#">Preencha corretamente <strong>todos</strong> os dados cadastrais</a></li>
+                    <li><span>3</span><a href="#">Mantenha todos os seus dados <strong>atualizados</strong> no sistema</a></li>
+                    <li><span>4</span><a href="#">Acompanhe os <strong>Editais</strong> Abertos e escolha quais disciplinas você ira pleitear</a></li>
                     </ul> 
          </div> 
          
@@ -74,27 +75,29 @@ Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mi
         <div class="center_right">
         
         <!-- <div class="software_box"><img src="images/3dbox.gif" alt="" title="" /></div> -->
-        
+        <form action="../controle/controleLogin.php" method="post">
                         <div class="text_box">
                         <div class="title">Login</div>
                             <div class="login_form_row">
-                            <label class="login_label">Login:</label><input type="text" name="name" class="login_input" />
+                            <label class="login_label">Login:</label><input type="text" name="login" class="login_input" required/>
                             </div>
                             
                             <div class="login_form_row">
-                            <label class="login_label">Senha:</label><input type="password" name="pass" class="login_input" />
+                            <label class="login_label">Senha:</label><input type="password" name="senha" class="login_input" required/>
                             </div>                                     
-                            <input type="image" src="images/login.gif" class="login" />                              
+                            <input type="image" src="images/botaoLogin.gif" class="login" />                              
                         
                         </div>
-                        
+        </form>
+        
                         <div class="testimonials">
-                        	<div class="title">Testimonials</div>
+                        	<div class="title">Crie sua conta</div>
                             <div class="text_box">
                              <p class="testimonial">
-                             “Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Ut enim ad minim veniam”<br />
-                             <strong>Edward Caloryd</strong>
-                             
+                             Organizar e participar de um processo seletivo de alunos especiais se tornou muito fácil. Crie agora mesmo sua conta
+                             e aproveite as facilidades desta ferramenta totalmente virtual!<br />
+                            
+                             <form action="../interface/cadastrar.php"><input type="image" src="images/botaoCadastrar.gif" class="login" /></form>
                              </p>
                             
                             
