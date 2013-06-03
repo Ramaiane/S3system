@@ -26,7 +26,7 @@
     <div class="center_content">
     
      	<div class="center_left">
-            <div class="title_welcome"><span class="red">S3 System</span> <a href="../interface/cadastro/cadastroCandidato.html">Conta para <b>Candidato</b></a></div>
+            <div class="title_welcome"><span class="red">S3 System</span> <a href="../interface/cadastro/cadastroCandidato.php">Conta para <b>Candidato</b></a></div>
             <div class="welcome_box">
             <p class="welcome">
 <span class="orange">Desenvolvido para os Programas de Pós Graduação da UnB </span><br />
@@ -36,7 +36,7 @@ quem participa das seleções. O sistema conta com todos os relatórios necessá
            <!-- <a href="#" class="read_more">Leia Mais</a>  -->        
             </div>
         
-         <div class="title_welcome"><span class="red">S3 System</span> <a href="../interface/cadastro/cadastroSecretaria.html">Conta para <b>Secretaria</b> de PPG</a></div>
+         <div class="title_welcome"><span class="red">S3 System</span> <a href="../interface/cadastro/cadastroSecretaria.php">Conta para <b>Secretaria</b> de PPG</a></div>
             <div class="welcome_box">
             <p class="welcome">
 <span class="orange">Desenvolvido para os Programas de Pós Graduação da UnB </span><br />
