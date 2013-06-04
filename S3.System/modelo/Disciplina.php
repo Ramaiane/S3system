@@ -8,10 +8,14 @@
  */
 class Disciplina {
     
+    var $campo;
+    var $valor;
+    var $msg = array();
+    
     //atributos
     private $orgao;
     private $codigo;
-    private $denomicacao;
+    private $denominacao;
     private $nivel;
     private $vigencia;
     private $preRequisitos;
@@ -22,6 +26,8 @@ class Disciplina {
     private $numeroCreditos;
     private $ementa;
     private $inscricao;
+    
+    private $
     
     //método construtor
     public function __construct($orgao, $codigo, $denominacao, $nivel, $vigencia, $preRequisitos, 
@@ -52,6 +58,9 @@ class Disciplina {
     
     public function setCodigo ($codigo) {
         $this-> codigo= $codigo;
+        if (validarNumero($codigo, "Código")==NULL){
+            
+        }
     }
     public function getCodigo () {
         return $this->codigo;
@@ -135,5 +144,90 @@ class Disciplina {
         return $this->inscricao;
     }
     
+    // Validar Numero
+    public function validarNumero($campo,$numero) {
+            if(!is_numeric($numero)) {
+                    return $this->mensagens(6, $campo, null, null);
+            }
+    }
+    
+    // Verificação simples (Campo vazio, maximo/minimo de caracteres)
+	function validarCampo($campo, $valor, $max, $min) {
+		$this->campo = $campo;
+			if ($valor == "") {
+				return $this->mensagens(8, $campo, $max, $min);
+			} 
+			elseif (strlen($valor) > $max) {
+				return $this->mensagens(9, $campo, $max, $min);
+			} 
+			elseif (strlen($valor) < $min) {
+				return $this->mensagens(10, $campo, $max, $min);	
+			}
+	}
+	
+    public function mensagens($num, $campo, $max, $min) {
+		
+		$this->msg[0] = "Preencha o campo com um email válido <br />"; // EMAIL
+		$this->msg[1] = "CEP com formato inválido (Ex: XXXXX-XXX) <br />"; // CEP
+		$this->msg[2] = "Data em formato inválido (Ex: DD/MM/AAAA) <br />"; // DATA
+		$this->msg[3] = "Telefone inválido (Ex: 01433333333) <br />"; // TELEFONE
+		$this->msg[4] = "CPF inválido (Ex: 11111111111) <br />"; // CPF
+		$this->msg[5] = "IP inválido (Ex: 192.168.10.1) <br />"; // IP
+		$this->msg[6] = "Preencha o campo ".$campo." com numeros <br />"; // APENAS NUMEROS
+		$this->msg[7] = "URL especificada é inválida (Ex: http://www.google.com) <br />"; // URL
+		$this->msg[8] = "Preencha o campo ".$campo." <br />"; // CAMPO VAZIO
+		$this->msg[9] = "O ".$campo." deve ter no máximo ".$max." caracteres <br />"; // MÁXIMO DE CARACTERES
+		$this->msg[10] = "O ".$campo." deve ter no mínimo ".$min." caracteres <br />"; // MÍNIMO DE CARACTERES
+		
+		return $this->msg[$num];
+	}
+        
+         // Metodo construtor
+        function __construct(){
+            //Passos que devem ser seguidos ao criar o objeto
+            //criamos a nossa conexao com o banco de dados e selecionamos o banco
+            $conexao = mysql_pconnect("localhost","root","123456") or die (mysql_error());
+            $banco = mysql_select_db("oo");
+        }
+       
+        function setProduto(){
+            //realiza o insert no banco de dados passando os valores do objeto criado
+            $insertProdutos = mysql_query("insert into produtos values(null,'$this->nome','$this->valor', '$this->quantidade','$this->categoria')");
+
+            if($insertProdutos){
+                $resposta="Inserido com sucesso";
+            }else{
+                $resposta ="Erro ao inserir";
+            }
+
+            return $resposta;
+        }  
+        function getProduto(){
+            /* realiza o select no banco de dados e seleciona e guarda as informações na variavel $getProdutos,
+            note que foi usava a chave estrangeira(utilizamos quando precisamos fazer alguma relacao com as tabelas) categoria que esta na tabela produto.
+            */
+            $getProdutos = mysql_query("select * from produtos, categorias where categoria = '$this->cat_id' and categoria = cat_id ");
+            //este while serve para ir pegando os dados do select e enquanto existirem serem atribuidos a sua variavel e logo apos mostra-los na tela
+            while($l = mysql_fetch_array($getProdutos)){
+                $this->nome = $l["nome"];
+                $this->valor = $l["valor"];
+                print '<br>Nome:'.$this->nome."<br>";
+                print 'Valor: R$ '.$this->valor."<br>";
+            }
+        }
+        /* funcao que criei para fazer um select na tabela categorias e retornar todas as catergorias cadastradas dentro de um combo box(select) */
+        function getSelect(){
+            $getSelect = mysql_query("select * from categorias");
+            print "<label for='Categoria'>Categoria:<br>";
+            print "<select name='Categoria'>";
+            while($l = mysql_fetch_array($getSelect)){
+                $this->cat_id = $l["cat_id"];
+                $this->cat_nome = $l["cat_nome"];
+                /*veja que o value do option e o cat_id e o cat_nome e apenas o que aparece para o usuario. E este cat_id que será salvo na tabela categorias no campo categoria, para podermos fazer a nossa associacao*/
+                print "<option value='{$this->cat_id}'>{$this->cat_nome}</option>";
+            }
+            print "</select>";
+            print "</label>";
+        }
 }
 ?>

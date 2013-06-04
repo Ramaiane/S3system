@@ -9,5 +9,5 @@ if (mysqli_connect_errno($con))
   exit;
   }
   
-  echo "parece estar funcionando!";
+  echo "Parece estar funcionando!";
 ?>
