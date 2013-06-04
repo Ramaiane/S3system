@@ -1,7 +1,7 @@
 S3system
 ========
 
-S3_sytem sistema para seleção de Aluno Especial da Unb
+S3_SYSTEM Sistema para Seleção de Aluno Especial da Unb
 
 
 
