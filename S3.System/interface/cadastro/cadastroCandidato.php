@@ -36,7 +36,7 @@
     </br></br><label class="login_label">Senha:</label><input type="password" name="senha1" class="login_input" required/> 
     </br></br><label class="login_label">Repita Senha:</label><input type="password" name="senha2" class="login_input" required/> 
     </br></br>
-    </br></br><label class="login_label">CPF:</label><input type="text" name="cpf" class="login_input" required/>
+    </br></br><label class="login_label">CPF:</label><input type="number" name="cpf" class="login_input" required/>
     </br></br><label class="login_label">Email:</label><input type="email" name="email" class="login_input" required/>
     </br></br><label class="login_label">Telefone:</label><input type="tel" name="telefone" class="login_input" required/>
     </br></br><label class="login_label">Conclus&atilde;o Gradua&ccedil;&atilde;o</label><input type="month" name="conclusao" required/>
