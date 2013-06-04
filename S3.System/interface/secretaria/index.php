@@ -37,19 +37,19 @@
 <span class="orange">Cadastro Secretaria</span><br />
 Por favor, preencha todos os campos abaixo.
 			</p>
-                <form name="cadastro" method="post" action="Secretaria.php">
+                <form name="cadastro" method="post" action="controleSecretaria.php">
              <table>
                  <tr>
-                     <td>Sigla: </td><td><input type="text" name="sigla"/></td>
+                     <td>Sigla: </td><td><input type="text" name="siglatxt"/></td>
                  </tr>
                  <tr>
-                     <td>Nome Progrma: </td><td><input type="text" name="nomePrograma"/></td>
+                     <td>Nome Progrma: </td><td><input type="text" name="nomeProgramatxt"/></td>
                  </tr>
                  <tr>
-                     <td>Responsável: </td><td><input type="text" name=""/></td>
+                     <td>Responsável: </td><td><input type="text" name="rsponsaveltxt"/></td>
                  </tr>
                   <tr>
-                      <td>Endereço Logo: </td><td><input type="text" name="enderecoLogo"/></td>
+                      <td>Endereço Logo: </td><td><input type="text" name="enderecoLogotxt"/></td>
                  </tr>
                  <tr>
                       <td>Telefone Contato: </td><td><input type="text" name="telefoneContato"/></td>
