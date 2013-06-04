@@ -37,28 +37,28 @@
 <span class="orange">Cadastro Secretaria</span><br />
 Por favor, preencha todos os campos abaixo.
 			</p>
-                <form name="cadastro" method="post" action="Secretaria.php">
+                <form name="cadastro" method="post" action="controleSecretaria.php">
              <table>
                  <tr>
-                     <td>Sigla: </td><td><input type="text" name="sigla"/></td>
+                     <td>Sigla: </td><td><input type="text" name="siglatxt"/></td>
                  </tr>
                  <tr>
-                     <td>Nome Progrma: </td><td><input type="text" name="nomePrograma"/></td>
+                     <td>Nome Progrma: </td><td><input type="text" name="nomeProgramatxt"/></td>
                  </tr>
                  <tr>
-                     <td>Responsável: </td><td><input type="text" name=""/></td>
+                     <td>Responsável: </td><td><input type="text" name="rsponsaveltxt"/></td>
                  </tr>
                   <tr>
-                      <td>Endereço Logo: </td><td><input type="text" name="enderecoLogo"/></td>
+                      <td>Endereço Logo: </td><td><input type="text" name="enderecoLogotxt"/></td>
                  </tr>
                  <tr>
-                      <td>Telefone Contato: </td><td><input type="text" name="telefoneContato"/></td>
+                      <td>Telefone Contato: </td><td><input type="text" name="telefoneContatotxt"/></td>
                  </tr>
                  <tr>
-                      <td>Email Contato: </td><td><input type="text" name="emailContato"/></td>
+                      <td>Email Contato: </td><td><input type="text" name="emailContatotxt"/></td>
                  </tr>
                  <tr>
-                      <td>Data Registro: </td><td><input type="text" name="dataRegistro"/></td>
+                      <td>Data Registro: </td><td><input type="text" name="dataRegistrotxt"/></td>
                  </tr>
                  <tr>
                      <td><br /><input type="submit" value="Cadastrar"/></td><td></td>

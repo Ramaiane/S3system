@@ -8,10 +8,12 @@
  */
 class Disciplina {
     
+    
+    
     //atributos
     private $orgao;
     private $codigo;
-    private $denomicacao;
+    private $denominacao;
     private $nivel;
     private $vigencia;
     private $preRequisitos;
@@ -22,6 +24,8 @@ class Disciplina {
     private $numeroCreditos;
     private $ementa;
     private $inscricao;
+    
+    
     
     //método construtor
     public function __construct($orgao, $codigo, $denominacao, $nivel, $vigencia, $preRequisitos, 
@@ -52,6 +56,9 @@ class Disciplina {
     
     public function setCodigo ($codigo) {
         $this-> codigo= $codigo;
+        if (validarNumero($codigo, "Código")==NULL){
+            
+        }
     }
     public function getCodigo () {
         return $this->codigo;
@@ -135,5 +142,6 @@ class Disciplina {
         return $this->inscricao;
     }
     
+ 
 }
 ?>

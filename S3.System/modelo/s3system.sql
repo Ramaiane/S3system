@@ -47,13 +47,24 @@ CREATE TABLE IF NOT EXISTS `candidato` (
 --
 
 CREATE TABLE IF NOT EXISTS `disciplina` (
-  `idDisciplina` int(11) NOT NULL AUTO_INCREMENT,
-  `idProfessor` int(11) NOT NULL,
-  `idEdital` int(11) NOT NULL,
-  `disciplina_nome` text NOT NULL,
-  `secretaria_descricao` text NOT NULL,
-  `secretaria_vagas` text NOT NULL,
-  `disciplina_codigo` text NOT NULL,
+    `idDisciplina` int(11) NOT NULL AUTO_INCREMENT,
+    `idProfessor` int(11) NOT NULL,
+    `idEdital` int(11) NOT NULL,
+    `disciplina_` text NOT NULL,
+    `denominacao` text NOT NULL,
+    `orgao` text NOT NULL,
+    `codigo` text NOT NULL,
+    `nivel` text NOT NULL,
+    `vigencia` text NOT NULL,
+    `preRequisitos` text NOT NULL,
+    `turma` text NOT NULL,
+    `numeroVagas` text NOT NULL,
+    `turno` text NOT NULL,
+    `horario` text NOT NULL,
+    `numeroCreditos` text NOT NULL,
+    `ementa` text NOT NULL,
+    `inscricao` text NOT NULL,
+
   PRIMARY KEY (`idDisciplina`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
