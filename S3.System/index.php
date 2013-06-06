@@ -6,7 +6,7 @@
     </head>
     <body>
        <?php
-            echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL=/interface/index.html'>";
+            echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL=/s3.system/interface/index.html'>";
         ?>
     </body>
 </html>
