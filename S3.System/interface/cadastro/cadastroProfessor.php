@@ -33,7 +33,7 @@ $objAcesso->verificaAcesso();
     <div class="center_content">
     
      	<div class="center_left">
-            <div class="title_welcome"><span class="red">Formul&aacute;rio</span> de Cadastro de Candidato</div>
+            <div class="title_welcome"><span class="red">Formul&aacute;rio</span> de Cadastro de Professor</div>
             
             <p class="welcome">
                 <span class="orange">Preencha adequadamente todas as informa&ccedil;&otilde;es abaixo: </span><br />
