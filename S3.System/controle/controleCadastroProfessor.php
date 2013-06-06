@@ -5,7 +5,7 @@ $objAcesso->iniciaSessao();
 $objAcesso->set('usuario_tipo', 2);
 $objAcesso->verificaAcesso();
 
-include_once("../modelo/ConexaoBanco.php");
+include_once("ConexaoBanco.php");
 include_once 'ValidaDados.php';
 
 $login = $_POST['login'];

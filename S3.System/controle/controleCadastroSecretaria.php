@@ -5,7 +5,7 @@
  * Autor: FIllipe Feitosa
  * 
  */
-include_once '../modelo/ConexaoBanco.php';
+include_once 'ConexaoBanco.php';
 include_once 'ValidaDados.php';
 
 $login = $_POST['login'];

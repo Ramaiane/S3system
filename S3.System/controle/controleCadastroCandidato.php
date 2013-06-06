@@ -4,7 +4,7 @@
  * Arquivo de Controle para criação de usuário do tipo = 1 (Candidatos)
  * Autor: Fillipe Feitosa
  */
-include_once("../modelo/ConexaoBanco.php");
+include_once("ConexaoBanco.php");
 include_once 'ValidaDadosCandidato.php';
     
     $login = $_POST['login'];

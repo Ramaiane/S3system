@@ -1,7 +1,7 @@
 <?php
 //chamando Classes
 include_once("../controle/ProcessaLogin.php");
-include_once("../modelo/ConexaoBanco.php");
+include_once("ConexaoBanco.php");
 
 $login = $_POST['login'];
 $senha = $_POST['senha'];
