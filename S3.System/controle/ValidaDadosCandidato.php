@@ -19,7 +19,7 @@ class ValidaDadosCandidato {
     private $email;
     private $telefone;
     private $conclusao;
-    public $mensagens;
+    public  $mensagens;
             
     function set($prop, $value){
          $this->$prop = $value;
