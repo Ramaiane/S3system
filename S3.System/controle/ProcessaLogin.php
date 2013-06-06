@@ -49,7 +49,10 @@ class ProcessaLogin {
                  header("Location:../interface/professor/index.php");
             }
     }
-    
+    function logoff(){
+        session_destroy();
+        header('../interface/index.html');
+    }
   
 }
 

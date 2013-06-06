@@ -33,6 +33,10 @@ class AcessoRestrito {
         }
         
     }
+    function logoff(){
+        session_destroy();
+        header('../interface/index.html');
+    }
 }
 
 ?>

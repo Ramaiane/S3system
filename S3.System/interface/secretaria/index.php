@@ -34,7 +34,7 @@ $objAcesso->verificaAcesso();
     <div class="center_content">
     
      	<div class="center_left">
-            <div class="title_welcome"><span class="red">S3 System</span> P&aacute;gina do Candidato.</div>
+            <div class="title_welcome"><span class="red">S3 System</span> P&aacute;gina de Secretaria PPG.</div>
             <div class="welcome_box">
             <p class="welcome">
 <span class="orange">Seja bem vindo candidato <?php echo $_SESSION['usuario_login']; ?> </span><br />
@@ -42,7 +42,7 @@ Este Sistema est&aacute; em desenvolvimento. Favor aguardar futuras releases. Po
 			</p>
 </br></br></br> 
             <a href="../cadastro/cadastroProfessor.php" class="read_more">Cadastrar</a> 
-            <a href="#" class="read_more">Logoff</a>          
+            <a href="../index.html" class="read_more">Logoff</a>                 
             </div>
          
          

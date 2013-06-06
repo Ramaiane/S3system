@@ -41,7 +41,7 @@ $objAcesso->verificaAcesso();
 Este Sistema est&aacute; em desenvolvimento. Favor aguardar futuras releases. Por enquanto s&oacute; pode fazer logoff. 
 			</p>
 </br></br></br>   
-            <a href="#" class="read_more">Logoff</a>          
+            <a href="../index.html" class="read_more">Logoff</a>          
             </div>
          
          
