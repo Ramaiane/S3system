@@ -6,60 +6,38 @@
  */
 
 /**
- * Description of ValidaDadosCandidato
+ * Classe para validação de Dados. Procurar método adequado instanciar a classe.
+ * Esta classe é genérica. Por tanto é necessário chamar todos os métodos 
+ * individualmente.
  *
  * @author Fillipe
  */
-class ValidaDadosCandidato {
-    private $login;
-    private $nomeCompleto;
-    private $senha1;
-    private $senha2;
-    private $cpf;
-    private $email;
-    private $telefone;
-    private $conclusao;
-    public  $mensagens;
-            
-    function set($prop, $value){
-         $this->$prop = $value;
-    }
-    
-    function validarGeral(){
-        $this->checaCampos();
-        $this->verificaSenha();
-        $this->verificaCPF();
-        //$this->verificaEmail();      
-    }
-    function checaCampos(){
-        if (!isset($this->login) || ($this->login=="") || 
-            !isset($this->nomeCompleto) || ($this->nomeCompleto=="") ||
-            !isset($this->senha1) || ($this->senha1=="") ||
-            !isset($this->senha2) || ($this->senha2=="") ||
-            !isset($this->cpf) || ($this->cpf=="") ||
-            !isset($this->email) || ($this->email=="") ||
-            !isset($this->telefone) || ($this->conclusao=="")){
+class ValidaDados {
+                
+      
+    function checaCampoEmBranco($dado){
+        if (!isset($dado) || ($dado=="")){
             header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
-            echo "Espertinho. Informe todos os campos para prosseguir com cadastro!";
+            echo "Informe todos os campos para prosseguir com cadastro!";
             exit;
         }
     }
-    function verificaEmail(){
-        if (!eregi("^[a-z0-9_\.\-]+@[a-z0-9_\.\-]*[a-z0-9_\-]+\.[a-z]{2,4}$", $this->email)) {
-			header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
-                        echo "Espertinho. Informe um EMail Válido!";
-                        exit;
-        }
+    function validaEmail($mail){
+	if(!preg_match("/^([[:alnum:]_.-]){3,}@([[:lower:][:digit:]_.-]{3,})(\.[[:lower:]]{2,3})(\.[[:lower:]]{2})?$/", $mail)) {
+            header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
+            echo "Informe um email Valido para Prosseguir com o cadastro";
+            exit;
+	}
     }
-    function verificaCPF(){
+    function verificaCPF($cpf){
         
         
 		
- 		if(!is_numeric($this->cpf)) {
+ 		if(!is_numeric($cpf)) {
   			$status = false;
 		} else {
    			# Pega o digito verificador
-  			$dv_informado = substr($this->cpf, 9,2);
+  			$dv_informado = substr($cpf, 9,2);
 
    			for($i=0; $i<=8; $i++) {
    				$digito[$i] = substr($this->cpf, $i,1);
@@ -117,12 +95,24 @@ class ValidaDadosCandidato {
 	}
         
     
-    function verificaSenha(){
-        if($this->senha1 != $this->senha2){
+    function verificaSenha($senha1, $senha2){
+        if(strlen($senha1) < 6){
+            header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
+            echo "Senha muito curta. Por favor informe uma senha de no minimo 6 caracteres";
+            exit;
+        }
+        if($senha1 != $senha2){
             header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
             echo "As senhas informadas não batem";
             exit;
         }
+    }
+    function campoNumerico($dadoNumerico){
+        if(!is_numeric($dadoNumerico)) {
+	    header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
+            echo "Favor, atentar para campo numerico";
+            exit;
+	}        
     }
 }
 
