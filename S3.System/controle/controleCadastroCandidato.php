@@ -23,7 +23,7 @@ include_once 'ValidaDadosCandidato.php';
     
     $objValida->validarGeral();
     
-    echo "passou tranquilo!";
+   
     //Inicio do Cadastro, em conjunto com a nexão do Banco
     $objNovaConexaoBanco = new ConexaoBanco;
     $objNovaConexaoBanco->set('db', 's3system');
@@ -31,7 +31,7 @@ include_once 'ValidaDadosCandidato.php';
     $objNovaConexaoBanco->set('user', 's3system');       
     $objNovaConexaoBanco->set('pass', 'macaco');
     $objNovaConexaoBanco->set('sql', "INSERT INTO usuario (usuario_login, usuario_senha, usuario_tipo) 
-    VALUES ($login, $senha, '1' )");   
+    VALUES ('$login', '$senha', '1' )");   
     
     $objNovaConexaoBanco->conectar();
     
@@ -40,9 +40,10 @@ include_once 'ValidaDadosCandidato.php';
     
     if ($result != 1) {
 	
-	header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" );
-        echo "Cadastro Realizado com sucesso!";
+	
+        echo "Erro no cadastro!";
 }else{
+    header( "refresh:3;url=../interface/index.html" );
     echo "Usuario Adicionado com Sucesso";
 }
     

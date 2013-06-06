@@ -29,7 +29,7 @@ class ValidaDadosCandidato {
         $this->checaCampos();
         $this->verificaSenha();
         $this->verificaCPF();
-        //$this->verificaEmail();      
+        $this->verificaEmail();      
     }
     function checaCampos(){
         if (!isset($this->login) || ($this->login=="") || 
@@ -45,11 +45,11 @@ class ValidaDadosCandidato {
         }
     }
     function verificaEmail(){
-        if (!eregi("^[a-z0-9_\.\-]+@[a-z0-9_\.\-]*[a-z0-9_\-]+\.[a-z]{2,4}$", $this->email)) {
-			header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
-                        echo "Espertinho. Informe um EMail Válido!";
-                        exit;
-        }
+	if(!preg_match("/^([[:alnum:]_.-]){3,}@([[:lower:][:digit:]_.-]{3,})(\.[[:lower:]]{2,3})(\.[[:lower:]]{2})?$/", $this->email)) {
+            header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
+            echo "Informe um email Valido para Prosseguir com o cadastro";
+            exit;
+	}
     }
     function verificaCPF(){
         
