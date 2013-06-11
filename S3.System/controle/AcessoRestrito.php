@@ -25,7 +25,7 @@ class AcessoRestrito {
         if (!isset($_SESSION)) session_start();
     }
     function verificaAcesso(){
-        if (!isset($_SESSION['idUsuario']) OR ($_SESSION['usuario_tipo'] =!$this->usuario_tipo)) {
+        if (!isset($_SESSION['idUsuario']) OR ($_SESSION['usuario_tipo'] !=$this->usuario_tipo)) {
 	// Destrói a sessão por segurança
 	session_destroy();
 	// Redireciona o visitante de volta pro login
