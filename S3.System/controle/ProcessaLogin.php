@@ -35,7 +35,7 @@ class ProcessaLogin {
             $_SESSION['idUsuario'] = $this->idUsuario;
             $_SESSION['usuario_login'] = $this->usuario_login;
             $_SESSION['usuario_tipo'] = $this->usuario_tipo;
-        
+       
         
     }
     function redirecionaUsuario(){
