@@ -10,13 +10,19 @@
  *
  * @author Fillipe
  */
-class Candidato {
-    private $login;
-    private $senha;
+class Candidato extends Usuario{
+    
     private $cpf;
     private $email;
     private $telefone;
     private $conclusaoGraduacao;
+    private $nome;
+    private $instituicaoGraduacao;
+    private $cursoGraduacao;
+    private $dataAdmissaoGraduacao;
+    private $dataConclusaoGraduacao;
+    public $tipo = 1;
+    
     
     function set($prop, $value){
          $this->$prop = $value;
