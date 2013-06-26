@@ -21,6 +21,9 @@ class Candidato {
     function set($prop, $value){
          $this->$prop = $value;
     }
+    function get($prop){
+        return $this->$prop;
+    }
 }
 
 ?>
