@@ -28,6 +28,7 @@ class Disciplina {
     private $inscricao;
     private $prop;
     private $value;
+    private $prop;
     
     //método construtor
     public function __construct($orgao, $codigo, $denominacao, $nivel, $vigencia, $preRequisitos, 
@@ -54,57 +55,8 @@ class Disciplina {
         $this->$prop = $value;
     }
     
-    public function getOrgao () {
-        return $this->orgao;
+   function get($prop){
+        return $this->$prop;
     }
-    
-    public function getCodigo () {
-        return $this->codigo;
-    }
-    
-    public function getDenominacao () {
-        return $this->denominacao;
-    }
-    
-    public function getNivel () {
-        return $this->nivel;
-    }
-    
-    public function getVigencia () {
-        return $this->vigencia;
-    }
-    
-    public function getPreRequisitos () {
-        return $this->preRequisitos;
-    }
-    
-    public function getTurma () {
-        return $this->turma;
-    }
-    
-    public function getNumeroVagas () {
-        return $this->numeroVagas;
-    }
-    
-    public function getTurno () {
-        return $this->turno;
-    }
-    
-    public function getNumeroCreditos () {
-        return $this->numeroCreditos;
-    }
-   
-    public function getHorario () {
-        return $this->horario;
-    }
-
-    public function getEmenta () {
-        return $this->ementa;
-    }
-
-    public function getInscricao () {
-        return $this->inscricao;
-    }
-    
 }
 ?>
