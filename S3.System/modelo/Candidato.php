@@ -10,6 +10,7 @@
  *
  * @author Fillipe
  */
+include_once 'Usuario.php';
 class Candidato extends Usuario{
     
     private $cpf;
