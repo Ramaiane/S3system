@@ -10,7 +10,9 @@
  *
  * @author Carol
  */
-class Secretaria {
+include_once 'Usuario.php';
+
+class Secretaria extends Usuario{
  
      
     
@@ -22,11 +24,15 @@ class Secretaria {
     private $telefone;
     private $email;
     private $senha2;
-    
-    
+    public $tipo = 2;
+            
     function set($prop, $value){
         $this->$prop = $value;
     }  
+    
+     function get($prop){
+        return $this->$prop;
+    }
    
 }
 
