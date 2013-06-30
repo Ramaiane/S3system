@@ -13,10 +13,10 @@
  * @author Fillipe
  */
 class ConexaoBanco {
-    private $host;
-    private $user;
-    private $pass;
-    private $db;
+    private $host = 'localhost';
+    private $user = 's3system';
+    private $pass = 'macaco';
+    private $db = 's3system';
     private $sql;
     
     function conectar(){
