@@ -97,8 +97,8 @@ class CandidatoDAO {
         if ($result != 1) {
             echo "Erro na atualização!";
         }else{
-            header( "refresh:3;url=../interface/candidato/index.html" );
-            echo "Usuario Adicionado com Sucesso";
+            header( "refresh0;url=../interface/candidato/index.html" );
+            
             
         }
         
