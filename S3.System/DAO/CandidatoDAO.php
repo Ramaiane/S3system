@@ -101,16 +101,50 @@ class CandidatoDAO {
             
             
         }
+    }
         
+        
+        
+        function atualizaLogin(Candidato $candidato){
+             $id = $candidato->get('id');
+             $login = $candidato->get('login');
+             $senha = $candidato->get('senha');
+             
+             if(strlen($senha1) < 6){
+                header( "refresh:2;url=../interface/candidato/index.html" ); 
+                echo "Senha muito curta. Por favor informe uma senha de no minimo 6 caracteres";
+                
+            }
+            if($senha1 != $senha2){
+              header( "refresh:2;url=../interface/candidato/index.html" ); 
+              echo "As senhas informadas não batem";
+              
+            }
+             
+             $controleAtualizaLogin = $this->conexao;
+             $controleAtualizaLogin->set('sql', "UPDATE usuario SET usuario_login = $login, usuario_senha = $senha 
+                 WHERE idUsuario = $id");
+             $controleAtualizaLogin->conectar();
+             $controleAtualizaLogin->selecionarDB();
+             $result = $controleAtualizaLogin->consulta();
+             if ($result != 1) {
+            echo "Erro na atualização!";
+            }else{
+            header( "refresh0;url=../interface/candidato/index.html" );
+            }
+        }
+        
+    
+    //Recuperação de dados (Listagem)
+    function recuperaDadosCandidato(Candidato $candidato){
         
     }
-    //Recuperação de dados (Listagem)
-    
     //Remoção de Usuário (Deleção)
     
     
+}    
     
-    
-}
+
+
 
 ?>
