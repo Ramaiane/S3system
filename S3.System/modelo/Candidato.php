@@ -16,7 +16,6 @@ class Candidato extends Usuario{
     private $cpf;
     private $email;
     private $telefone;
-    private $conclusaoGraduacao;
     private $nome;
     private $instituicaoGraduacao;
     private $cursoGraduacao;
