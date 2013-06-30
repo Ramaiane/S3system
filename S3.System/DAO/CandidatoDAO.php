@@ -12,9 +12,9 @@
  */
 include_once '../controle/ConexaoBanco.php';
 class CandidatoDAO {
-    //Método Construtor que inicializa uma conexao
+   
     public $conexao=null;
-    
+    //Método Construtor que inicializa uma conexao
     public function CandidatoDAO(){
         $this->conexao=new ConexaoBanco;
         
@@ -28,7 +28,7 @@ class CandidatoDAO {
         $cpf = $candidato->get('cpf');
         $email = $candidato->get('email');
         $telefone = $candidato->get('telefone');
-        $conclusaoGraduacao = $candidato->get('conclusaoGraduacao');
+        $conclusaoGraduacao = $candidato->get('dataConclusaoGraduacao');
         $tipo = $candidato->get('tipo');
         
         
@@ -67,7 +67,43 @@ class CandidatoDAO {
 
 
     //Atualização de Dados no Banco (Update)
-    
+    function atualizaCandidatoDados(Candidato $candidato){
+        
+        $id = $candidato->get('id');
+        $login = $candidato->get('login');
+        $senha = $candidato->get('senha');
+        $nome = $candidato->get('nome');
+        $cpf = $candidato->get('cpf');
+        $email = $candidato->get('email');
+        $telefone = $candidato->get('telefone');
+        $dataConclusaoGraduacao = $candidato->get('dataConclusaoGraduacao');
+        $dataAdmissaoGraduacao = $candidato->get('dataAdmissaoGraduacao');
+        $instituicaoGraduacao = $candidato->get('instituicaoGraduacao');
+        $cursoGraduacao = $candidato->get('cursoGraduacao');
+        $tipo = $candidato->get('tipo');
+        
+        $controleAtualiza = $this->conexao;
+        $controleAtualiza->set('sql', "UPDATE candidato SET candidato_nome = $nome,
+                candidato_cpf = $cpf, candidato_email = $email,
+                candidato_telefone = $telefone, candidato_instituicaoGraduacao = $instituicaoGraduacao,
+                candidato_cursoGraduacao = $cursoGraduacao, candidato_dataAdmissaoGraduacao = $dataAdmissaoGraduacao, 
+                candidato_dataConclusaoGraduacao = $dataConclusaoGraduacao WHERE idUsuario = $id");
+        
+        $controleAtualiza->conectar();
+        $controleAtualiza->selecionarDB();
+        
+        $result = $controleAtualiza->consulta();
+        
+        if ($result != 1) {
+            echo "Erro na atualização!";
+        }else{
+            header( "refresh:3;url=../interface/candidato/index.html" );
+            echo "Usuario Adicionado com Sucesso";
+            
+        }
+        
+        
+    }
     //Recuperação de dados (Listagem)
     
     //Remoção de Usuário (Deleção)
