@@ -48,17 +48,17 @@ class CandidatoDAO {
         if ($result != 1) {
             echo "Erro no cadastro!";
         }
-        
+               
         //Inserção no tabela filha = Usuário  
-        $controleInsere->set('sql', "INSERT INTO candidato (candidato_nome, candidato_cpf,
+        $controleInsere->set('sql', "INSERT INTO candidato (candidato_nome, idUsuario, candidato_cpf,
             candidato_email, candidato_telefone, candidato_dataConclusaoGraduacao) 
-    VALUES ('$nome', '$cpf', '$email','$telefone', '$conclusaoGraduacao' )");
+    VALUES ('$nome', '$temp','$cpf', '$email','$telefone', '$conclusaoGraduacao' )");
         $result2 = $controleInsere->consulta();
         //adicionando e redirecionando para a página principal.
         if ($result2 != 1) {
 	 echo "Erro no cadastro!";
         }else{
-            header( "refresh:3;url=../interface/index.html" );
+            //header( "refresh:3;url=../interface/index.html" );
             echo "Usuario Adicionado com Sucesso";
             $this->conexao=null;
         }
@@ -137,10 +137,33 @@ class CandidatoDAO {
     
     //Recuperação de dados (Listagem)
     function recuperaDadosCandidato(Candidato $candidato){
+        $id = $candidato->get('id');
+        $controleListagem = $this->conexao;
         
+        $controleListagem->set('sql', "SELECT * FROM candidato WHERE idUsuario");
     }
     //Remoção de Usuário (Deleção)
+    function excluiCandidato(Candidato $candidato){
+        $id = $candidato->get('id');
+        
+        $controleExcluiCandidato =  $this->conexao;
+        $controleExcluiCandidato->set('sql', "DELETE FROM usuario WHERE idUsuario = $id");
     
+        $controleExcluiCandidato->conectar();
+        $controleExcluiCandidato->selecionarDB();
+        
+        $result2 = $controleExcluiCandidato->consulta();
+       
+        if ($result2 != 1) {
+	 echo "Erro na operação!";
+        }else{
+            header( "refresh:3;url=../interface/index.html" );
+            echo "Usuario Removido com suscesso!";
+            $this->conexao=null;
+        }
+        
+        
+    }
     
 }    
     
