@@ -10,12 +10,17 @@
  *
  * @author Fillipe
  */
+include_once("../modelo/Usuario.php");
 class ProcessaLogin {
    
-   private $idUsuario;
-   private $usuario_login;
-   private $usuario_tipo;
-    
+   public $usuario = null;
+   
+   function ProcessaLogin(){
+       $this->usuario = new Usuario;
+   }
+   function setUsuario(Usuario $usuario){
+       $this->usuario = $usuario;
+   }
     function checaDados($login, $senha){
    
             if(!isset($login) || $login = ""){
@@ -32,20 +37,20 @@ class ProcessaLogin {
     function criaSessao(){
              
             if(!isset($_SESSION))session_start ();
-            $_SESSION['idUsuario'] = $this->idUsuario;
-            $_SESSION['usuario_login'] = $this->usuario_login;
-            $_SESSION['usuario_tipo'] = $this->usuario_tipo;
+            $_SESSION['idUsuario'] = $this->usuario->get('id');
+            $_SESSION['usuario_login'] = $this->usuario->get('login');
+            $_SESSION['usuario_tipo'] = $this->usuario->get('tipo');
        
         
     }
     function redirecionaUsuario(){
         
      
-            if($this->usuario_tipo==1){
+            if($this->usuario->get('tipo')==1){
                 header("Location:../interface/candidato/index.php");
-            }if($this->usuario_tipo==2){
+            }if($this->usuario->get('tipo')==2){
                 header("Location:../interface/secretaria/index.php");
-            }if($this->usuario_tipo==3){
+            }if($this->usuario->get('tipo')==3){
                  header("Location:../interface/professor/index.php");
             }
     }

@@ -2,6 +2,7 @@
 //chamando Classes
 include_once("../controle/ProcessaLogin.php");
 include_once("ConexaoBanco.php");
+include_once("../modelo/Usuario.php");
 
 $login = $_POST['login'];
 $senha = $_POST['senha'];
@@ -30,6 +31,7 @@ if (mysql_num_rows($result) != 1) {
 	echo "Login inválido!"; exit;
 }else{
 
+
 //agregando os resultados da consulta
             $resultadoConsulta=  mysql_fetch_array($result);
             echo $resultadoConsulta['idUsuario'];
@@ -39,12 +41,16 @@ if (mysql_num_rows($result) != 1) {
             echo $resultadoConsulta['usuario_tipo'];
             echo "</br>";
             
-            $objProcessa->set('idUsuario', $resultadoConsulta['idUsuario']);
-            $objProcessa->set('usuario_login', $resultadoConsulta['usuario_login']);
-            $objProcessa->set('usuario_tipo', $resultadoConsulta['usuario_tipo']);
+            //Instanciando Usuário
+            $controleNovoUsuario = new Usuario;
+            $controleNovoUsuario->set('id', $resultadoConsulta['idUsuario']);
+            $controleNovoUsuario->set('login', $resultadoConsulta['usuario_login']);
+            $controleNovoUsuario->set('tipo', $resultadoConsulta['usuario_tipo']);
             
+           
+            $objProcessa->setUsuario($controleNovoUsuario);
             $objProcessa->criaSessao();
-            $objProcessa->redirecionaUsuario($resultadoConsulta['usuario_tipo']);
+            $objProcessa->redirecionaUsuario();
             
             
             echo "</br>tudo certo!";
