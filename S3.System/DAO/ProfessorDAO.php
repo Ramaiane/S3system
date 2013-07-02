@@ -38,7 +38,7 @@ class ProfessorDAO {
             echo "Erro no cadastro!";
         }
         
-        //Inserção no tabela filha = Usuário  -> Aqui que devo acrescentar a tabela professor?!
+        //Inserção no tabela filha = Usuário
         $controleInsere->set('sql', "INSERT INTO professor (professor_nome, professor_cpf,
             professor_email, professor_telefone, professor_dataConclusaoGraduacao) 
     VALUES ('$professor_nome', '$professor_cpf', '$professor_email','$professor_telefone', '$professor_conclusaoGraduacao' )"); //especificar q é do professor?
