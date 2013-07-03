@@ -31,7 +31,7 @@ class ValidaDadosSecretaria {
     function verificaSenha($senha1, $senha2){
         if(strlen($senha1) < 6){
             header( "refresh:3;url=../interface/cadastro/cadastroSecretaria.php" ); 
-            echo "Senha muito curta. Por favor informe uma senha de no minimo 6 caracteres";
+            echo "Por favor informe uma senha de no minimo 6 caracteres";
             exit;
         }
         if($senha1 != $senha2){
