@@ -15,15 +15,15 @@ include_once 'Usuario.php';
 class Secretaria extends Usuario{
  
      
-    
+    private $enderecoLogo;
     private $login;
     private $sigla;
-    private $nomeProgrma;
+    private $nomePrograma;
     private $responsavel;
-    private $senha1;
+    private $senha;
     private $telefone;
     private $email;
-    private $senha2;
+    private $dataRegistro;
     public $tipo = 2;
             
     function set($prop, $value){
