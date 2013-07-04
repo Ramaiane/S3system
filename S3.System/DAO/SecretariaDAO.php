@@ -39,8 +39,8 @@ class SecretariaDAO {
         $controleInsere = $this->conexao;
         $controleInsere->set('db', 's3system');
         $controleInsere->set('host', 'localhost');
-        $controleInsere->set('user', 's3system');
-        $controleInsere->set('pass', ' ');
+        $controleInsere->set('user', 'root');
+        $controleInsere->set('pass', '');
         $controleInsere->set('sql', "INSERT INTO usuario (usuario_login, usuario_senha, usuario_tipo) 
     VALUES ('$login', '$senha', '$tipo' )");
         
@@ -67,6 +67,101 @@ class SecretariaDAO {
         }
         
     }
+    
+     //Atualização de Dados no Banco (Update)
+    function updateLogin(Secretaria $secretaria, $senha1, $senha2){
+         
+             $id = $secretaria->get('id');
+             $login = $secretaria->get('login');
+             $senha = $secretaria->get('senha');
+             
+             if(strlen($senha1) < 6){
+                header( "refresh:2;url=../interface/secretaria/index.html" ); 
+                echo "Senha muito curta. Por favor informe uma senha de no minimo 6 caracteres";
+                
+            }
+            if($senha1 != $senha2){
+              header( "refresh:2;url=../interface/secretaria/index.html" ); 
+              echo "As senhas informadas não batem";
+              
+            }
+             
+             $controleAtualizaLogin = $this->conexao;
+             $controleAtualizaLogin->set('sql', "UPDATE usuario SET usuario_login = $login, usuario_senha = $senha 
+                 WHERE idUsuario = $id");
+             $controleAtualizaLogin->conectar();
+             $controleAtualizaLogin->selecionarDB();
+             $result = $controleAtualizaLogin->consulta();
+             
+             if ($result != 1) {
+            echo "Erro na atualização!";
+            }else{
+            header( "refresh0;url=../interface/secretaria/index.html" );
+            }
+    }
+    
+    function updateSecretaria(Secretaria $secretaria){
+        
+        $sigla = $secretaria->get('sigla');
+        $nomePrograma = $secretaria->get('nomePrograma');
+        $responsavel = $secretaria->get('responsavel');
+        $telefone = $secretaria->get('telefone');
+        $email = $secretaria->get('email');
+        $id = $secretaria->get('id');
+        $enderecoLogo = $secretaria->get('enderecoLogo');
+        
+        $controleAtualiza = $this->conexao;
+    
+        $controleAtualiza->set('sql', "UPDATE secretaria SET secretaria_sigla= $sigla , secreataria_emailContato= $email, secretaria_nomeProgrma = '$nomePrograma' 
+        secretaria_responsavel = $responsavel, secretaria_telefoneContato = $telefone, secretaria_enderecoLogo = $enderecoLogo WHERE idUsuario='$id'");
+        $controleAtualiza->conectar();
+        $controleAtualiza->selecionarDB();
+   
+      $result = $controleAtualiza->consulta();
+    if ($result != 1) {
+            echo "Erro na atualização!";
+        }else{
+            header( "refresh0;url=../interface/secretaria/index.html" );
+            
+            
+        }
+    }
+    
+    //Recuperação de dados (Listagem)
+    function recuperaDadosSecretaria(Secretaria $secretaria){
+        
+        $id = $secretaria->get('id');
+        $controleListagem = $this->conexao;
+        $controleListagem->set('sql', "SELECT * FROM secretaria WHERE idUsuario = $id");
+        
+       
+       
+    }
+    function deleteSecretaria(Secretaria $secretaria){
+        
+         $id = $secretaria->get('id');
+        
+        $controleExcluiSecretaria =  $this->conexao;
+        $controleExcluiSecretaria->set('sql', "DELETE FROM usuario WHERE idUsuario = $id");
+    
+        $controleExcluiSecretaria->conectar();
+        $controleExcluiSecretaria->selecionarDB();
+        
+        $result2 = $controleExcluiSecretaria->consulta();
+
+
+
+    if ($result2 != 1) {
+	 echo "Erro na operação!";
+        }else{
+            header( "refresh:3;url=../interface/index.html" );
+            echo "Usuario Removido";
+            $this->conexao=null;
+        }
+
+
+    }
+    
 }
 
 ?>
