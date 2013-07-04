@@ -1,7 +1,7 @@
 <?php
 include_once 'Usuario.php';
 
-class Professor extends Usuario{
+class Candidato extends Usuario{
     
     private $idProfessor;
     private $idUsuario;
