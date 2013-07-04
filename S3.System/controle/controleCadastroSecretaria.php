@@ -6,12 +6,13 @@
  * 
  */
 include_once 'ConexaoBanco.php';
-include_once 'ValidaDados.php';
+include_once 'ValidaDadosSecretaria.php';
+
 
 $login = $_POST['login'];
 $senha = $_POST['senha1'];
 
-$objValidaNewSecretaria = new ValidaDados;
+$objValidaNewSecretaria = new ValidaDadosSecretaria;
 
 
 /** Verificação de Dados **/
@@ -43,8 +44,8 @@ $objConexaoNewSecretaria = new ConexaoBanco;
   $objConexaoNewSecretaria = new ConexaoBanco;
   $objConexaoNewSecretaria->set('db', 's3system');
   $objConexaoNewSecretaria->set('host', 'localhost');
-  $objConexaoNewSecretaria->set('user', 's3system');       
-  $objConexaoNewSecretaria->set('pass', 'macaco');
+  $objConexaoNewSecretaria->set('user', 'root');       
+  $objConexaoNewSecretaria->set('pass', '');
   $objConexaoNewSecretaria->set('sql', "INSERT INTO usuario (usuario_login, usuario_senha, usuario_tipo) 
   VALUES ('$login', '$senha', '2' )");  
     
