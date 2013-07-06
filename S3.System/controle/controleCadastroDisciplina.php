@@ -12,7 +12,7 @@ $login = $_POST['login'];
 $senha = $_POST['senha1'];
 
 /** Verificação de Dados **/
-$objValidaNewDisciplina = new ValidaDados;
+$objValidaNewDisciplina = new ValidaDadosDisciplina;
 $objValidaNewDisciplina->checaCampoEmBranco($_POST['login']);
 $objValidaNewDisciplina->checaCampoEmBranco($_POST['senha']);
 $objValidaNewDisciplina->checaCampoEmBranco($_POST['disciplina_']);
