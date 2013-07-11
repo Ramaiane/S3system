@@ -48,11 +48,18 @@ class CandidatoDAO {
         if ($result != 1) {
             echo "Erro no cadastro!";
         }
-               
+        
+        $controleInsere->set('sql', "SELECT MAX(idUsuario) FROM usuario");
+        $controleInsere->selecionarDB();
+        $temp = $controleInsere->consulta();
+       
+        $retorna = max(mysql_fetch_array($temp));
+        //$maxID = max($temp);
+        
         //Inserção no tabela filha = Usuário  
         $controleInsere->set('sql', "INSERT INTO candidato (candidato_nome, idUsuario, candidato_cpf,
             candidato_email, candidato_telefone, candidato_dataConclusaoGraduacao) 
-    VALUES ('$nome', '$temp','$cpf', '$email','$telefone', '$conclusaoGraduacao' )");
+    VALUES ('$nome', '$retorna','$cpf', '$email','$telefone', '$conclusaoGraduacao' )");
         $result2 = $controleInsere->consulta();
         //adicionando e redirecionando para a página principal.
         if ($result2 != 1) {
@@ -140,7 +147,19 @@ class CandidatoDAO {
         $id = $candidato->get('id');
         $controleListagem = $this->conexao;
         
-        $controleListagem->set('sql', "SELECT * FROM candidato WHERE idUsuario");
+        $controleListagem->set('sql', "SELECT * FROM candidato WHERE idUsuario = $id");
+        $controleListagem->conectar();
+        $controleListagem->selcionarDB();
+        
+        $result = $controleListagem->consulta();
+        
+        if ($result != 1) {
+            echo "Erro na Consulta!";
+            }
+        $recupera = mysqli_fetch_array($result);
+        return $recupera;
+         
+        
     }
     //Remoção de Usuário (Deleção)
     function excluiCandidato(Candidato $candidato){
