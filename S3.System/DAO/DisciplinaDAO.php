@@ -14,14 +14,21 @@ class DisciplinaDAO {
         
     }
     
+    public function resetaConexao(){
+        $this->conexao = null;
+    }
+
+
     //Inserção no Banco (cadastro)
     function insereDisciplina(Disciplina $disciplina){
+        
         //Primeiro, pegar os dados do Object Disciplina
-        $idDisciplina = $disciplina->get('idDisciplina');
+        //
+        //$idDisciplina = $disciplina->get('idDisciplina');
         $idProfessor =$disciplina->get('idProfessor');
         $idEdital = $disciplina->get('idEdital');
-        $login = $disciplina->get('login');
-        $senha = $disciplina->get('senha');
+       // $login = $disciplina->get('login');
+       // $senha = $disciplina->get('senha');
         $disciplina_ = $disciplina->get('disciplina_');
         $denominacao = $disciplina->get('denominacao');
         $orgao = $disciplina->get('orgao');
@@ -45,6 +52,7 @@ class DisciplinaDAO {
         $controleInsere->set('pass', '');
         
         
+        
         $controleInsere->conectar();
         $controleInsere->selecionarDB();
         $result = $controleInsere->consulta();
@@ -54,10 +62,10 @@ class DisciplinaDAO {
             echo "Erro no cadastro!";
         }
                 
-        $controleInsere->set('sql', "INSERT INTO disciplina (idDisciplina, idProfessor, idEdital, disciplina_, 
+        $controleInsere->set('sql', "INSERT INTO disciplina ( idProfessor, idEdital, disciplina_, 
             denominacao, orgao, codigo, nivel, vigencia, preRequisitos, turma, numeroVagas, turno, horario, 
             numeroCreditos, ementa, inscricao)
-            VALUES ($idDisciplina', '$idProfessor', '$idEdital', '$disciplina_', '$denominacao', '$orgao', 
+            VALUES ('$idProfessor', '$idEdital', '$disciplina_', '$denominacao', '$orgao', 
             '$codigo','$nivel', '$vigencia', '$preRequisitos','$turma', '$numeroVagas', '$turno', '$horario',
             '$numeroCreditos', '$ementa', '$inscricao'");
         $result2 = $controleInsere->consulta();
@@ -65,7 +73,7 @@ class DisciplinaDAO {
         if ($result2 != 1) {
 	 echo "Erro no cadastro!";
         }else{
-            //header( "refresh:3;url=../interface/index.html" );
+            header( "refresh:3;url=../interface/index.html" );
             echo "Disciplina Adicionada com Sucesso";
             $this->conexao=null;
         }
@@ -76,11 +84,11 @@ class DisciplinaDAO {
     //Atualização de Dados no Banco (Update)
     function atualizaDisciplinaDados(Disciplina $disciplina){
         
-        $idDisciplina = $disciplina->get('idDisciplina');
+        //$idDisciplina = $disciplina->get('idDisciplina');
         $idProfessor =$disciplina->get('idProfessor');
         $idEdital = $disciplina->get('idEdital');
-        $login = $disciplina->get('login');
-        $senha = $disciplina->get('senha');
+        //$login = $disciplina->get('login');
+        //$senha = $disciplina->get('senha');
         $disciplina_ = $disciplina->get('disciplina_');
         $denominacao = $disciplina->get('denominacao');
         $orgao = $disciplina->get('orgao');
@@ -98,8 +106,7 @@ class DisciplinaDAO {
         
         $controleAtualiza = $this->conexao;
         $controleAtualiza->set('sql', "UPDATE disciplina SET disciplina_ = $disciplina_,
-                idDisciplina = $idDisciplina, idProfessor = $idProfessor, idEdital =  $idEdital, login =  $login,
-                senha = $senha, disciplina_ = $disciplina_, denominacao = $denominacao, 
+                idProfessor = $idProfessor, idEdital =  $idEdital, disciplina_ = $disciplina_, denominacao = $denominacao, 
                 orgao = $orgao, codigo = $codigo, nivel = $nivel, vigencia = $vigencia, 
                 preRequisitos = $preRequisitos, turma = $turma, numeroVagas = $numeroVagas, 
                 turno = $turno, horario = $horario,  numeroCreditos =  $numeroCreditos, 
@@ -119,17 +126,25 @@ class DisciplinaDAO {
     
     //Recuperação de dados (Listagem)
     function recuperaDadosDisciplina(Disciplina $disciplina){
-        $disciplina = $disciplina->get('idDisciplina');
+        $id = $disciplina->get('idDisciplina');
         $controleListagem = $this->conexao;
         
-        $controleListagem->set('sql', "SELECT * FROM disciplina WHERE idDisciplina");
+        $controleListagem->set('sql', "SELECT * FROM disciplina WHERE idDisciplina = $id");
+        $controleListagem->conectar();
+        $controleListagem->selecionarDB();
+        
+        $result = $controleListagem->consulta();
+        
+        $recupera = mysql_fetch_array($result);
+        return $recupera;
+        
     }
     //Remoção de Usuário (Deleção)
     function excluiDisciplina(Disciplina $disciplina){
-        $idDisciplina = $disciplina->get('idDisciplina');
+        $id = $disciplina->get('idDisciplina');
         
         $controleExcluiDisciplina =  $this->conexao;
-        $controleExcluiDisciplina->set('sql', "DELETE FROM disciplina WHERE idDisciplina = $idDisciplina");
+        $controleExcluiDisciplina->set('sql', "DELETE FROM disciplina WHERE idDisciplina = $id");
         $controleExcluiDisciplina->conectar();
         $controleExcluiDisciplina->selecionarDB();
         
