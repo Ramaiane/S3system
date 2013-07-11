@@ -41,8 +41,10 @@ $objAcesso->verificaAcesso();
 Este Sistema est&aacute; em desenvolvimento. Favor aguardar futuras releases. Por enquanto s&oacute; pode fazer logoff ou criar uma conta de professor. 
 			</p>
 </br></br></br> 
-            <a href="../cadastro/cadastroProfessor.php" class="read_more">Cadastrar</a> 
-            <a href="../index.html" class="read_more">Logoff</a>                 
+             <a href="../cadastro/cadastroProfessor.php" class="read_more">Professor</a> 
+            <a href="../cadastro/cadastroDisciplina.php" class="read_more">Disciplina</a>
+            <a href="../index.html" class="read_more">Logoff</a>
+                         
             </div>
          
          
