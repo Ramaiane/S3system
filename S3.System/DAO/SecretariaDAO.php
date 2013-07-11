@@ -130,9 +130,17 @@ class SecretariaDAO {
     //Recuperação de dados (Listagem)
     function recuperaDadosSecretaria(Secretaria $secretaria){
         
+          
         $id = $secretaria->get('id');
         $controleListagem = $this->conexao;
         $controleListagem->set('sql', "SELECT * FROM secretaria WHERE idUsuario = $id");
+        
+        $controleListagem->conectar();
+        $controleListagem->selecionarDB();
+        
+        $result = $controleListagem->consulta();
+         
+         
         
        
        
