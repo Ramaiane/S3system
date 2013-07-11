@@ -18,10 +18,12 @@ class ConexaoBanco {
     private $pass = 'macaco';
     private $db = 's3system';
     private $sql;
-    
+    private $con;
     function conectar(){
-        $con = mysql_connect($this->host, $this->user, $this->pass, $this->db);
-        return $con;
+        if($this->con == NULL){
+        $this->con = mysql_connect($this->host, $this->user, $this->pass, $this->db);
+        }
+        return $this->con;
     }
     function selecionarDB(){
         $sel = mysql_select_db($this->db) or die($this->erro(mysql_error()));
@@ -43,6 +45,9 @@ class ConexaoBanco {
      }
      function erro($erro){
          echo $erro;
+     }
+     function encerraConexao(){
+         mysql_close($this->con);
      }
 }
 
