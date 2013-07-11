@@ -19,6 +19,9 @@ class CandidatoDAO {
         $this->conexao=new ConexaoBanco;
         
     }
+    public function resetaConexao(){
+        $this->conexao = null;
+    }
     //Inserção no Banco (cadastro)
     function insereCandidato(Candidato $candidato){
         //Primeiro, pegar os dados do Object Candidato
