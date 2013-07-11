@@ -50,6 +50,7 @@ if (mysql_num_rows($result) != 1) {
            
             $objProcessa->setUsuario($controleNovoUsuario);
             $objProcessa->criaSessao();
+            $objConexaoBanco->encerraConexao();
             $objProcessa->redirecionaUsuario();
             
             
