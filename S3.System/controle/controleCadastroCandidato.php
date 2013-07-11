@@ -6,6 +6,8 @@
  */
 include_once("ConexaoBanco.php");
 include_once 'ValidaDadosCandidato.php';
+include_once '../modelo/Candidato.php';
+include_once '../DAO/CandidatoDAO.php';
     
     $login = $_POST['login'];
     $senha = $_POST['senha1'];
@@ -23,7 +25,7 @@ include_once 'ValidaDadosCandidato.php';
     
     $objValida->validarGeral();
     
-   
+/**   
     //Inicio do Cadastro, em conjunto com a nexão do Banco
     $objNovaConexaoBanco = new ConexaoBanco;
     $objNovaConexaoBanco->set('db', 's3system');
@@ -46,5 +48,21 @@ include_once 'ValidaDadosCandidato.php';
     header( "refresh:3;url=../interface/index.html" );
     echo "Usuario Adicionado com Sucesso";
 }
+   */
+    
+    //Nova Estrutura Usando DAO
+    $newCandidato = new Candidato;
+    $newCandidatoDAO = new CandidatoDAO;
+    
+    $newCandidato->set('login', $_POST['login']);
+    $newCandidato->set('nomeCompleto', $_POST['nomeCompleto']);
+    $newCandidato->set('senha', $_POST['senha1']);
+    $newCandidato->set('cpf', $_POST['cpf']);
+    $newCandidato->set('email', $_POST['email']);
+    $newCandidato->set('telefone', $_POST['telefone']);
+    $newCandidato->set('conclusao', $_POST['conclusao']);
+    
+    $newCandidatoDAO->insereCandidato($newCandidato);
+    
     
 ?>

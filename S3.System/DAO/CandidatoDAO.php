@@ -68,7 +68,7 @@ class CandidatoDAO {
         if ($result2 != 1) {
 	 echo "Erro no cadastro!";
         }else{
-            //header( "refresh:3;url=../interface/index.html" );
+            header( "refresh:3;url=../interface/index.html" );
             echo "Usuario Adicionado com Sucesso";
             $this->conexao=null;
         }
