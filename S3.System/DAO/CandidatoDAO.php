@@ -149,14 +149,11 @@ class CandidatoDAO {
         
         $controleListagem->set('sql', "SELECT * FROM candidato WHERE idUsuario = $id");
         $controleListagem->conectar();
-        $controleListagem->selcionarDB();
+        $controleListagem->selecionarDB();
         
         $result = $controleListagem->consulta();
         
-        if ($result != 1) {
-            echo "Erro na Consulta!";
-            }
-        $recupera = mysqli_fetch_array($result);
+        $recupera = mysql_fetch_array($result);
         return $recupera;
          
         
