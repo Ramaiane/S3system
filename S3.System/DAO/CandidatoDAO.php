@@ -184,6 +184,18 @@ class CandidatoDAO {
         
     }
     
+    function defineNovoCandidato(Candidato $candidato, array $array){
+        $candidato->set('cpf', $array['candidato_cpf']);
+        $candidato->set('email', $array['candidato_email']);
+        $candidato->set('telefone', $array['candidato_telefone']);
+        $candidato->set('nome', $array['candidato_nome']);
+        $candidato->set('instituicaoGraduacao', $array['candidato_instituicaoGraduacao']);
+        $candidato->set('cursoGraduacao', $array['candidato_cursoGraduacao']);
+        $candidato->set('dataAdmissaoGraduacao', $array['candidato_dataAdmissaoGraduacao']);
+        $candidato->set('dataConclusaoGraduacao', $array['candidato_dataConclusaoGraduacao']);
+           
+    }
+    
 }    
     
 
