@@ -50,8 +50,8 @@ class ValidaDadosCandidato {
     }
     function verificaEmail(){
 	if(!preg_match("/^([[:alnum:]_.-]){3,}@([[:lower:][:digit:]_.-]{3,})(\.[[:lower:]]{2,3})(\.[[:lower:]]{2})?$/", $this->email)) {
-            header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
-            /*echo "Informe um email Valido para Prosseguir com o cadastro";
+            /*header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
+            echo "Informe um email Valido para Prosseguir com o cadastro";
             exit;*/
             return false;
             

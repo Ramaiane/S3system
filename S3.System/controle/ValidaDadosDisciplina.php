@@ -16,19 +16,17 @@ class ValidaDadosDisciplina {
               
     function checaCampoEmBranco($dado){
         if (!isset($dado) || ($dado=="")){
-            header( "refresh:3;url=../interface/cadastro/cadastroDisciplina.php" ); 
-            echo "Informe todos os campos para prosseguir com cadastro!";
-            exit;
+            return false;
         }
+        return true;
     }
     
   
     function campoNumerico($dadoNumerico){
         if(!is_numeric($dadoNumerico)) {
-	    header( "refresh:3;url=../interface/cadastro/cadastroDisciplina.php" ); 
-            echo "Favor, atentar para campo numerico.";
-            exit;
+	    return false;
 	}        
+        return true;
     }
 }
 

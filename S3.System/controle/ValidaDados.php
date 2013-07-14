@@ -44,7 +44,7 @@ class ValidaDados {
   			$dv_informado = substr($cpf, 9,2);
 
    			for($i=0; $i<=8; $i++) {
-   				$digito[$i] = substr($this->cpf, $i,1);
+   				$digito[$i] = substr($cpf, $i,1);
    			}
    			# Calcula o valor do 10° digito de verificação
    			$posicao = 10;
