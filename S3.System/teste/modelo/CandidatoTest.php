@@ -42,9 +42,10 @@ class CandidatoTest extends PHPUnit_Framework_TestCase {
      * @covers Candidato::get
      * @todo   Implement testGet().
      */
-    public function testGet() {
+   public function testGet() {
         // Remove the following lines when you implement this test.
-        $this->assertEquals('03592075101', $this->object->get('cpf'));
+        $this->object->set('cpf', '11111111111');
+        $this->assertEquals('11111111111', $this->object->get('cpf'));
     }
 
 }
