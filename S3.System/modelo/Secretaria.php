@@ -16,11 +16,11 @@ class Secretaria extends Usuario{
  
      
     private $enderecoLogo;
-    private $login;
+    protected $login;
     private $sigla;
     private $nomePrograma;
     private $responsavel;
-    private $senha;
+    protected $senha;
     private $telefone;
     private $email;
     private $dataRegistro;
