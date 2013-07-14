@@ -17,17 +17,21 @@ class ValidaDados {
       
     function checaCampoEmBranco($dado){
         if (!isset($dado) || ($dado=="")){
-            header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
+           /* header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
             echo "Informe todos os campos para prosseguir com cadastro!";
-            exit;
+            exit;*/
+            return false;
         }
+        return true;
     }
     function validaEmail($mail){
 	if(!preg_match("/^([[:alnum:]_.-]){3,}@([[:lower:][:digit:]_.-]{3,})(\.[[:lower:]]{2,3})(\.[[:lower:]]{2})?$/", $mail)) {
-            header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
+           /* header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
             echo "Informe um email Valido para Prosseguir com o cadastro";
-            exit;
+            exit;*/
+            return false;
 	}
+        return true;
     }
     function verificaCPF($cpf){
         
@@ -87,32 +91,33 @@ class ValidaDados {
   
   		  # Se houver erro
  				if (!$status) {
-					header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
-                                        echo "Insira um CPF Válido!";
-                                        exit;
-				}
+					return false;
+				}else return true;
 
 	}
         
     
     function verificaSenha($senha1, $senha2){
         if(strlen($senha1) < 6){
-            header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
+            /*header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
             echo "Senha muito curta. Por favor informe uma senha de no minimo 6 caracteres";
-            exit;
+            exit;*/
+            return false;
         }
         if($senha1 != $senha2){
-            header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
+            /*header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
             echo "As senhas informadas não batem";
-            exit;
+            exit;*/
+            return false;
         }
+        return true;
     }
     function campoNumerico($dadoNumerico){
         if(!is_numeric($dadoNumerico)) {
-	    header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
-            echo "Favor, atentar para campo numerico";
-            exit;
+	   
+            return false;
 	}        
+        return true;
     }
 }
 

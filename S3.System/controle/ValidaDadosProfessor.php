@@ -8,10 +8,12 @@
 class ValidaDadosProfessor {
     function checaCampoEmBranco($dado){
         if (!isset($dado) || ($dado=="")){
-            header( "refresh:3;url=../interface/cadastro/cadastroProfessor.php" ); 
+            /*header( "refresh:3;url=../interface/cadastro/cadastroProfessor.php" ); 
             echo "Informe todos os campos para prosseguir com cadastro!";
-            exit;
+            exit;*/
+            return false;
         }
+        return true;
     }
     function validaEmail($mail){
 	if(!preg_match("/^([[:alnum:]_.-]){3,}@([[:lower:][:digit:]_.-]{3,})(\.[[:lower:]]{2,3})(\.[[:lower:]]{2})?$/", $mail)) {

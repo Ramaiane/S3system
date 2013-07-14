@@ -13,24 +13,37 @@ $senha = $_POST['senha1'];
 
 $objValidaNewProfessor = new ValidaDados;
 /** Verificação de Dados **/
-$objValidaNewProfessor->checaCampoEmBranco($_POST['login']);
-$objValidaNewProfessor->checaCampoEmBranco($_POST['nomeCompleto']);
-$objValidaNewProfessor->checaCampoEmBranco($_POST['email']);
-$objValidaNewProfessor->checaCampoEmBranco($_POST['senha1']);
-$objValidaNewProfessor->checaCampoEmBranco($_POST['senha2']);
-$objValidaNewProfessor->checaCampoEmBranco($_POST['telefone']);
+if(!$objValidaNewProfessor->checaCampoEmBranco($_POST['login'])||
+!$objValidaNewProfessor->checaCampoEmBranco($_POST['nomeCompleto'])||
+!$objValidaNewProfessor->checaCampoEmBranco($_POST['email'])||
+!$objValidaNewProfessor->checaCampoEmBranco($_POST['senha1'])||
+!$objValidaNewProfessor->checaCampoEmBranco($_POST['senha2'])||
+!$objValidaNewProfessor->checaCampoEmBranco($_POST['telefone'])){
+    header( "refresh:3;url=../interface/cadastro/cadastroProfessor.php" ); 
+            echo "Informe todos os campos para prosseguir com cadastro!";
+            
+}
 /** Verificação de Senha **/
-$objValidaNewProfessor->verificaSenha($_POST['senha1'], $_POST['senha2']);
+if(!$objValidaNewProfessor->verificaSenha($_POST['senha1'], $_POST['senha2'])){
+    header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
+            echo "As senhas sao invalidas";
+}
 /** Verifica Email **/
-$objValidaNewProfessor->validaEmail($_POST['email']);
+if(!$objValidaNewProfessor->validaEmail($_POST['email'])){
+    header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
+            echo "Informe um email Valido para Prosseguir com o cadastro";
+}
 /** Verfica Se telefone é numerico **/
-$objValidaNewProfessor->campoNumerico($_POST['telefone']);
+if(!$objValidaNewProfessor->campoNumerico($_POST['telefone'])){
+     header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
+            echo "Favor, atentar para campo numerico";
+}
 /** Verificação OK...Iniciando Cadastro no Banco**/
 $objConexaoNewProfessor = new ConexaoBanco;
 $objConexaoNewProfessor->set('db', 's3system');
 $objConexaoNewProfessor->set('host', 'localhost');
-$objConexaoNewProfessor->set('user', 's3system');       
-$objConexaoNewProfessor->set('pass', 'macaco');
+$objConexaoNewProfessor->set('user', 'root');       
+$objConexaoNewProfessor->set('pass', '');
 $objConexaoNewProfessor->set('sql', "INSERT INTO usuario (usuario_login, usuario_senha, usuario_tipo) 
   VALUES ('$login', '$senha', '3' )");  
 
