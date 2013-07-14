@@ -24,7 +24,9 @@ class ValidaDadosCandidato {
     function set($prop, $value){
          $this->$prop = $value;
     }
-    
+    function get($prop){
+        return $this->$prop;
+    }
     function validarGeral(){
         $this->checaCampos();
         $this->verificaSenha();
@@ -39,17 +41,22 @@ class ValidaDadosCandidato {
             !isset($this->cpf) || ($this->cpf=="") ||
             !isset($this->email) || ($this->email=="") ||
             !isset($this->telefone) || ($this->conclusao=="")){
-            header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
-            echo "Espertinho. Informe todos os campos para prosseguir com cadastro!";
-            exit;
+            return false;
+                /*header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
+                echo "Espertinho. Informe todos os campos para prosseguir com cadastro!";
+            exit;*/
         }
+        return true;
     }
     function verificaEmail(){
 	if(!preg_match("/^([[:alnum:]_.-]){3,}@([[:lower:][:digit:]_.-]{3,})(\.[[:lower:]]{2,3})(\.[[:lower:]]{2})?$/", $this->email)) {
             header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
-            echo "Informe um email Valido para Prosseguir com o cadastro";
-            exit;
+            /*echo "Informe um email Valido para Prosseguir com o cadastro";
+            exit;*/
+            return false;
+            
 	}
+        return true;
     }
     function verificaCPF(){
         
@@ -109,20 +116,23 @@ class ValidaDadosCandidato {
   
   		  # Se houver erro
  				if (!$status) {
-					header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
+					/*header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
                                         echo "Insira um CPF Válido!";
-                                        exit;
-				}
+                                        exit;*/
+                                    return false;
+				}else return true;
 
 	}
         
     
     function verificaSenha(){
         if($this->senha1 != $this->senha2){
-            header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
+            /*header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
             echo "As senhas informadas não batem";
-            exit;
+            exit;*/
+            return false;
         }
+        return true;
     }
 }
 
