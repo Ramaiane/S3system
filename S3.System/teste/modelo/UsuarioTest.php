@@ -44,6 +44,7 @@ class UsuarioTest extends PHPUnit_Framework_TestCase {
      */
     public function testGet() {
         // Remove the following lines when you implement this test.
+        $this->object->set('senha', '123456');
          $this->assertEquals('123456', $this->object->get('senha'));
     }
 
