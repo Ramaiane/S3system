@@ -16,26 +16,40 @@ $objValidaNewSecretaria = new ValidaDadosSecretaria;
 
 
 /** Verificação de Dados **/
-$objValidaNewSecretaria->checaCampoEmBranco($_POST['login']);
-$objValidaNewSecretaria->checaCampoEmBranco($_POST['sigla']);
-$objValidaNewSecretaria->checaCampoEmBranco($_POST['nomePrograma']);
-$objValidaNewSecretaria->checaCampoEmBranco($_POST['senha1']);
-$objValidaNewSecretaria->checaCampoEmBranco($_POST['senha2']);
-$objValidaNewSecretaria->checaCampoEmBranco($_POST['responsavel']);
-$objValidaNewSecretaria->checaCampoEmBranco($_POST['email']);
-$objValidaNewSecretaria->checaCampoEmBranco($_POST['telefone']);
+if((!$objValidaNewSecretaria->checaCampoEmBranco($_POST['login']))||
+!$objValidaNewSecretaria->checaCampoEmBranco($_POST['sigla'])||
+!$objValidaNewSecretaria->checaCampoEmBranco($_POST['nomePrograma'])||
+!$objValidaNewSecretaria->checaCampoEmBranco($_POST['senha1'])||
+!$objValidaNewSecretaria->checaCampoEmBranco($_POST['senha2'])||
+!$objValidaNewSecretaria->checaCampoEmBranco($_POST['responsavel'])||
+!$objValidaNewSecretaria->checaCampoEmBranco($_POST['email'])||
+!$objValidaNewSecretaria->checaCampoEmBranco($_POST['telefone'])){
+  header( "refresh:3;url=../interface/cadastro/cadastroSecretaria.php" ); 
+            echo "Informe todos os campos para prosseguir com cadastro!";
+              
+}
 
 /** Verificação de Senha **/
 
-$objValidaNewSecretaria->verificaSenha($_POST['senha1'], $_POST['senha2']);
+if(!$objValidaNewSecretaria->verificaSenha($_POST['senha1'], $_POST['senha2'])){
+    header( "refresh:3;url=../interface/cadastro/cadastroSecretaria.php" ); 
+            echo "As senhas informadas sao invalidas";
+}
 
 /** Verifica Email **/
 
-$objValidaNewSecretaria->validaEmail($_POST['email']);
+if(!$objValidaNewSecretaria->validaEmail($_POST['email'])){
+     header( "refresh:3;url=../interface/cadastro/cadastroSecretaria.php" ); 
+     echo "Informe um email Valido para Prosseguir com o cadastro";
+            
+}
 
 /** Verfica Se telefone é numerico **/
 
-$objValidaNewSecretaria->campoNumerico($_POST['telefone']);
+if(!$objValidaNewSecretaria->campoNumerico($_POST['telefone'])){
+    header( "refresh:3;url=../interface/cadastro/cadastroSecretaria.php" ); 
+            echo "Favor, atentar para campo numerico";
+}
 
 /** Verificação OK...Iniciando Cadastro no Banco**/
 
