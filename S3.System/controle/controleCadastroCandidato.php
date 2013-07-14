@@ -23,7 +23,28 @@ include_once '../DAO/CandidatoDAO.php';
     $objValida->set('telefone', $_POST['telefone']);
     $objValida->set('conclusao', $_POST['conclusao']);
     
-    $objValida->validarGeral();
+    //$objValida->validarGeral();
+    
+    if( !$objValida->checaCampos()){
+        header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
+            echo "Espertinho. Informe todos os campos para prosseguir com cadastro!";
+    }
+            
+        if(!$objValida->verificaSenha()){
+            header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
+            echo "As senhas informadas não batem";
+            
+        }
+        if(!$objValida->verificaCPF()){
+            header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
+            echo "Insira um CPF Válido!";
+        }
+        if(!$objValida->verificaEmail()){
+            header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
+            echo "Informe um email Valido para Prosseguir com o cadastro";
+            
+        }
+    
     
 /**   
     //Inicio do Cadastro, em conjunto com a nexão do Banco
