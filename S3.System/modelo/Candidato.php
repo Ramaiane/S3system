@@ -22,9 +22,7 @@ class Candidato extends Usuario{
     private $dataAdmissaoGraduacao;
     private $dataConclusaoGraduacao;
     public $tipo = 1;
-    function __construct($cpf) {
-        $this->cpf = $cpf;
-    }
+    
 
     
 
