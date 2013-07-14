@@ -44,6 +44,7 @@ class ValidaDadosTest extends PHPUnit_Framework_TestCase {
     public function testValidaEmail() {
         // Remove the following lines when you implement this test.
         $this->assertTrue($this->object->validaEmail('teste@email.com'));
+        $this->assertFalse($this->object->validaEmail(''));
     }
 
     /**
@@ -51,8 +52,11 @@ class ValidaDadosTest extends PHPUnit_Framework_TestCase {
      * @todo   Implement testVerificaCPF().
      */
     public function testVerificaCPF() {
-        $this->assertTrue($this->object->verificaCPF('11111111111'));
-    }
+        $this->assertTrue($this->object->verificaCPF('03592075101'));
+        $this->assertFalse($this->object->verificaCPF('teste'));
+        $this->assertFalse($this->object->verificaCPF('12345123451'));
+
+        }
 
     /**
      * @covers ValidaDados::verificaSenha
@@ -60,6 +64,7 @@ class ValidaDadosTest extends PHPUnit_Framework_TestCase {
      */
     public function testVerificaSenha() {
         $this->assertTrue($this->object->verificaSenha('123456','123456'));
+        $this->assertFalse($this->object->verificaSenha('123456','000000'));
     }
 
     /**
@@ -68,6 +73,7 @@ class ValidaDadosTest extends PHPUnit_Framework_TestCase {
      */
     public function testCampoNumerico() {
         $this->assertTrue($this->object->campoNumerico('11111111'));
+        $this->assertFalse($this->object->campoNumerico('teste'));
     }
 
 }

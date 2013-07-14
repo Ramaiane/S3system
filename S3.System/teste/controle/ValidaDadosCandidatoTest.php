@@ -67,8 +67,11 @@ class ValidaDadosCandidatoTest extends PHPUnit_Framework_TestCase {
      */
     public function testChecaCampos() {
         // Remove the following lines when you implement this test.
+        
         $this->assertTrue($this->object->checaCampos());
-    }
+        $this->object->set('cpf', '');
+        $this->assertFalse($this->object->checaCampos());
+        }
 
     /**
      * @covers ValidaDadosCandidato::verificaEmail
@@ -76,7 +79,10 @@ class ValidaDadosCandidatoTest extends PHPUnit_Framework_TestCase {
      */
     public function testVerificaEmail() {
         $this->assertTrue($this->object->verificaEmail());
-    }
+        $this->object->set('email', '');
+        $this->assertFalse($this->object->verificaEmail());
+
+        }
 
     /**
      * @covers ValidaDadosCandidato::verificaCPF
@@ -85,6 +91,11 @@ class ValidaDadosCandidatoTest extends PHPUnit_Framework_TestCase {
     public function testVerificaCPF() {
         // Remove the following lines when you implement this test.
         $this->assertTrue($this->object->verificaCPF());
+         $this->object->set('cpf', 'teste');
+         $this->assertFalse($this->object->verificaCPF());
+         $this->object->set('cpf', '12345123412');
+         $this->assertFalse($this->object->verificaCPF());
+         
     }
 
     /**
@@ -92,7 +103,10 @@ class ValidaDadosCandidatoTest extends PHPUnit_Framework_TestCase {
      * @todo   Implement testVerificaSenha().
      */
     public function testVerificaSenha() {
+        
         $this->assertTrue($this->object->verificaSenha());
-    }
+        $this->object->set('senha1', '000000');
+        $this->assertFalse($this->object->verificaSenha());
+        }
 
 }

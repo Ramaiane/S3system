@@ -35,6 +35,7 @@ class ValidaDadosSecretariaTest extends PHPUnit_Framework_TestCase {
     public function testChecaCampoEmBranco() {
         // Remove the following lines when you implement this test.
         $this->assertTrue($this->object->checaCampoEmBranco('teste'));
+        $this->assertFalse($this->object->checaCampoEmBranco(''));
     }
 
     /**
@@ -44,6 +45,7 @@ class ValidaDadosSecretariaTest extends PHPUnit_Framework_TestCase {
     public function testValidaEmail() {
         // Remove the following lines when you implement this test.
          $this->assertTrue($this->object->validaEmail('teste@email.com'));
+         $this->assertFalse($this->object->validaEmail(''));
     }
 
     /**
@@ -53,6 +55,7 @@ class ValidaDadosSecretariaTest extends PHPUnit_Framework_TestCase {
     public function testVerificaSenha() {
         // Remove the following lines when you implement this test.
          $this->assertTrue($this->object->verificaSenha('123456','123456'));
+         $this->assertFalse($this->object->verificaSenha('123456','000000'));
     }
 
     /**
@@ -62,6 +65,7 @@ class ValidaDadosSecretariaTest extends PHPUnit_Framework_TestCase {
     public function testCampoNumerico() {
         // Remove the following lines when you implement this test.
          $this->assertTrue($this->object->campoNumerico('11111111'));
+         $this->assertFalse($this->object->campoNumerico('teste'));
     }
 
 }
