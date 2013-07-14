@@ -14,7 +14,7 @@ class Professor extends Usuario{
     
 //    public $tipo = 2;
     
-    public function __construct($idProfessor, $idUsuario, $idSecretaria,
+        public function __construct($idProfessor, $idUsuario, $idSecretaria,
             $professor_nome, $professor_email, $professor_contatoTelefone){
         $this-> orgao= $idProfessor; 
         $this-> codigo= $idUsuario;

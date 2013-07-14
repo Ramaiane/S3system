@@ -28,10 +28,8 @@ class Disciplina {
     private $inscricao;
     private $prop;
     private $value;
-    private $prop;
-    
     //método construtor
-    public function __construct($orgao, $codigo, $denominacao, $nivel, $vigencia, $preRequisitos, 
+    public function         __construct($orgao, $codigo, $denominacao, $nivel, $vigencia, $preRequisitos, 
             $turma, $numeroVagas, $turno, $horario, $numeroCreditos, $ementa, $inscricao) {
         $this-> orgao= $orgao; 
         $this-> codigo= $codigo;

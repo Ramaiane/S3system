@@ -25,7 +25,9 @@ class Secretaria extends Usuario{
     private $email;
     private $dataRegistro;
     public $tipo = 2;
-            
+    
+
+    
     function set($prop, $value){
         $this->$prop = $value;
     }  
