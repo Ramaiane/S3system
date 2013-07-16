@@ -39,20 +39,11 @@ $objAcesso->verificaAcesso();
        <span class="orange">Preencha adequadamente todas as informa&ccedil;&otilde;es abaixo: </span><br />
        
 <form action="../../controle/controleCadastroDisciplina.php" method="post"></br>
-    </br></br><label class="login_label">Disciplina:</label><input type="text" name="disciplina_" class="login_input" required/> 
-    </br></br><label class="login_label">Denominacao:</label><input type="text" name="denominacao" class="login_input" required/> 
-    </br></br><label class="login_label">Orgao:</label><input type="text" name="orgao" class="login_input" required/> 
+    </br></br><label class="login_label">Disciplina:</label><input type="text" name="nome" class="login_input" required/> 
+    </br></br><label class="login_label">Descri&ccedil;&atilde;o:</label><input type="text" name="descricao" class="login_input" required/> 
     </br></br><label class="login_label">Codigo:</label><input type="text" name="codigo" class="login_input" required/> 
-    </br></br><label class="login_label">Nivel:</label><input type="text" name="nivel" class="login_input" required/> 
-    </br></br><label class="login_label">Vigencia:</label><input type="text" name="vigencia" class="login_input" required/> 
-    </br></br><label class="login_label">Pre requisitos:</label><input type="text" name="preRequisitos" class="login_input" required/></br>
-    </br></br><label class="login_label">Turma:</label><input type="text" name="turma" class="login_input" required/> 
-    </br></br><label class="login_label">Numero de Vagas:</label><input type="text" name="numeroVagas" class="login_input" required/></br>
-    </br></br><label class="login_label">Turno:</label><input type="text" name="turno" class="login_input" required/> 
-    </br></br><label class="login_label">Horario:</label><input type="text" name="horario" class="login_input" required/>
-    </br></br><label class="login_label">Numero de Creditos:</label><input type="text" name="numeroCreditos" class="login_input" required/></br> 
-    </br></br><label class="login_label">Ementa:</label><input type="text" name="ementa" class="login_input" required/> 
-    </br></br><label class="login_label">Inscricao:</label><input type="text" name="inscricao" class="login_input" required/> 
+    </br></br><label class="login_label">Vagas:</label><input type="number" name="vagas" class="login_input" required/> 
+     
     </br>
     
     <input type="image" src="../../interface/images/botaoCadastrar.gif" class="login" />
