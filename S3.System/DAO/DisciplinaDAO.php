@@ -27,7 +27,8 @@ $professor = $disciplina->get('professor');
 $secretaria = $disciplina->get('secretaria');
 $nome = $disciplina->get('nome');
 $descricao = $disciplina->get('descricao');
-$vagas = $disciplina->get('codigo');
+$vagas = $disciplina->get('vagas');
+$codigo = $disciplina->get('codigo');
 
 $controleInsere = $this->conexao;
 $controleInsere->set('sql', "INSERT INTO disciplina (idProfessor, idSecretaria, disciplina_nome,

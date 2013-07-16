@@ -9,7 +9,7 @@ include_once 'ValidaDados.php';
 include_once '../DAO/DisciplinaDAO.php';
 include_once '../modelo/Disciplina.php';
 
-/** Verificação de Dados **/
+/** Verificação de Dados 
 $objValidaNewDisciplina = new ValidaDadosDisciplina;
 
 if(
@@ -24,7 +24,7 @@ if(
 
 /** Verificação OK...Iniciando Cadastro no Banco **/ 
 $newDisciplina = new Disciplina;
-$newDisciplinaDAO = new DisciplinaDAO();
+$newDisciplinaDAO = new DisciplinaDAO;
 $newDisciplina->set('nome', $_POST['nome']);
 $newDisciplina->set('descricao', $_POST['descricao']);
 $newDisciplina->set('codigo', $_POST['codigo']);
@@ -33,7 +33,7 @@ $newDisciplina->set('professor', $_POST['professor']);
 $newDisciplina->set('secretaria', $_SESSION['idUsuario']);
 
 if(null==$newDisciplinaDAO->insereDisciplina($newDisciplina)){
-         header( "refresh:3;url=../interface/index.html" );
+         //header( "refresh:3;url=../interface/index.html" );
             echo "Usuario Adicionado com Sucesso";
     }
 

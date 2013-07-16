@@ -42,7 +42,7 @@ $array = $objAcesso->recuperaProfessores();
                             <form action="../../controle/controleCadastroDisciplina.php" method="post"></br>
                                 </br></br><label class="login_label">Disciplina:</label><input type="text" name="nome" class="login_input" required/> 
                                 </br></br><label class="login_label">Descri&ccedil;&atilde;o:</label><input type="text" name="descricao" class="login_input" required/> 
-                                </br></br><label class="login_label">Codigo:</label><input type="text" name="codigo" class="login_input" required/> 
+                                </br></br><label class="login_label">C&oacute;digo:</label><input type="text" name="codigo" class="login_input" required/> 
                                 </br></br><label class="login_label">Vagas:</label><input type="number" name="vagas" class="login_input" required/> 
                                 </br></br><label class='login_label'>Professor: </label><select name = 'professor'>
                                     <?php
