@@ -17,7 +17,7 @@ class CandidatoSessaoDAO {
     
             
     function CandidatoSessaoDAO(){
-        $this->conexao = mysql_connect("localhost", "s3system", "macaco", "s3system");
+        $this->conexao = mysqli_connect("localhost", "s3system", "macaco", "s3system");
     }
     function encerraConexao(){
         mysqli_close($this->conexao);
@@ -25,10 +25,25 @@ class CandidatoSessaoDAO {
     }
     //entrar com a id gerada pelo controle de login
     function configuraSessaoCandidato($id){
-        $this->consulta = "SELECT * FROM candidato, usuario WHERE idUsuario = $id";
-        $this->resultado = mysql_query($this->consulta, $this->conexao);
+        $this->consulta = "SELECT * FROM candidato, usuario WHERE usuario.idUsuario = $id";
+        $this->resultado = mysqli_query($this->conexao, $this->consulta);
+       
+        if(!$this->resultado != 1){
+            echo "algum tipo de erro na consulta com banco";
+        }
+        $temp = mysqli_fetch_array($this->resultado);
+        echo "aqui vai teste";
+        echo "</br>";
+        echo $temp;
+        echo "</br>";
+        echo $temp['candidato_nome'];
         
+        $_SESSION['candidato_nome']=  $temp['candidato_nome'];
+        $_SESSION['candidato_cpf']=  $temp['candidato_cpf'];
+        $_SESSION['candidato_email']=  $temp['candidato_email'];
+        $_SESSION['candidato_telefone']=  $temp['candidato_telefone'];
         
+        $this->encerraConexao();
     }
     
 }

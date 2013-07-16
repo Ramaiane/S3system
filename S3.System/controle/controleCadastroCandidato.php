@@ -76,7 +76,7 @@ include_once '../DAO/CandidatoDAO.php';
     $newCandidatoDAO = new CandidatoDAO;
     
     $newCandidato->set('login', $_POST['login']);
-    $newCandidato->set('nomeCompleto', $_POST['nomeCompleto']);
+    $newCandidato->set('nome', $_POST['nomeCompleto']);
     $newCandidato->set('senha', $_POST['senha1']);
     $newCandidato->set('cpf', $_POST['cpf']);
     $newCandidato->set('email', $_POST['email']);
