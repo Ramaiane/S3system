@@ -32,16 +32,15 @@ class CandidatoSessaoDAO {
             echo "algum tipo de erro na consulta com banco";
         }
         $temp = mysqli_fetch_array($this->resultado);
-        echo "aqui vai teste";
-        echo "</br>";
-        echo $temp;
-        echo "</br>";
-        echo $temp['candidato_nome'];
-        
+              
         $_SESSION['candidato_nome']=  $temp['candidato_nome'];
         $_SESSION['candidato_cpf']=  $temp['candidato_cpf'];
         $_SESSION['candidato_email']=  $temp['candidato_email'];
         $_SESSION['candidato_telefone']=  $temp['candidato_telefone'];
+        $_SESSION['candidato_instituicaoGraduacao']=  $temp['candidato_instituicaoGraduacao'];
+        $_SESSION['candidato_cursoGraduacao']=  $temp['candidato_cursoGraduacao'];
+        $_SESSION['candidato_dataAdmissaoGraduacao']=  $temp['candidato_dataAdmissaoGraduacao'];
+        $_SESSION['candidato_dataConclusaoGraduacao']=  $temp['candidato_dataConclusaoGraduacao'];
         
         $this->encerraConexao();
     }
