@@ -37,6 +37,12 @@ class AcessoRestrito {
         session_destroy();
         header('../interface/index.html');
     }
+      function recuperaProfessores(){
+        $idSessao = $_SESSION['idUsuario'];
+        $con = mysqli_connect("localhost", "s3system", "macaco", "s3system");
+        $result = mysqli_query($con, "SELECT * FROM professor WHERE idSecretaria = $idSessao");
+        return $result;
+    }
 }
 
 ?>
