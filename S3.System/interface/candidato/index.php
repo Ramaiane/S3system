@@ -42,9 +42,20 @@ $controleSessao->configuraSessaoCandidato($_SESSION['idUsuario']);
             <p class="welcome">
 <span class="orange">Seja bem vindo candidato <?php echo $_SESSION['usuario_login']; 
 echo "</br>";
-echo "cpf: " . $_SESSION['candidato_cpf'];
+echo "Nome: " . $_SESSION['candidato_nome'];
 echo "</br>";
-echo "id: " . $_SESSION['idUsuario'];
+echo "CPF: " . $_SESSION['candidato_cpf'];
+echo "</br>";
+echo "Email: " . $_SESSION['candidato_email'];
+echo "</br>";
+echo "Telefone: " . $_SESSION['candidato_telefone'];
+echo "</br>";
+echo "Institui&ccedil;&atilde;o da Gradua&ccedil;&atilde;o: " . $_SESSION['candidato_instituicaoGraduacao'];
+echo "</br>";
+echo "Data de Admiss&atilde;o: " . $_SESSION['candidato_dataAdmissaoGraduacao'];
+echo "</br>";
+echo "Data de Conclus&atilde;o: " . $_SESSION['candidato_dataConclusaoGraduacao'];
+echo "</br>";
 
 
 ?> </span><br />
