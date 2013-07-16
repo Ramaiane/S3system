@@ -1,9 +1,12 @@
 <?php
 include_once '../../controle/AcessoRestrito.php';
+include_once '../../DAO/CandidatoSessaoDAO.php';
 $objAcesso = new AcessoRestrito;
 $objAcesso->iniciaSessao();
 $objAcesso->set('usuario_tipo', 1);
 $objAcesso->verificaAcesso(); 
+$controleSessao = new CandidatoSessaoDAO();
+$controleSessao->configuraSessaoCandidato($_SESSION['idUsuario']);
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -38,6 +41,10 @@ $objAcesso->verificaAcesso();
             <div class="welcome_box">
             <p class="welcome">
 <span class="orange">Seja bem vindo candidato <?php echo $_SESSION['usuario_login']; 
+echo "</br>";
+echo "cpf: " . $_SESSION['candidato_cpf'];
+echo "</br>";
+echo "id: " . $_SESSION['idUsuario'];
 
 
 ?> </span><br />
