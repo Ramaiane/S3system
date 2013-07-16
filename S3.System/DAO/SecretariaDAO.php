@@ -30,8 +30,8 @@ class SecretariaDAO {
         $responsavel = $secretaria->get('responsavel');
         $telefone = $secretaria->get('telefone');
         $email = $secretaria->get('email'); 
-        $senha1 = $secretaria->get('senha1');
-        $senha2 = $secretaria->get('senha2');
+        $senha1 = $secretaria->get('senha');
+        $senha2 = $secretaria->get('senha');
         $tipo = $secretaria->get('tipo');
         
         
@@ -42,7 +42,7 @@ class SecretariaDAO {
         $controleInsere->set('user', 'root');
         $controleInsere->set('pass', '');
         $controleInsere->set('sql', "INSERT INTO usuario (usuario_login, usuario_senha, usuario_tipo) 
-    VALUES ('$login', '$senha', '$tipo' )");
+    VALUES ('$login', '$senha1', '$tipo' )");
         
         $controleInsere->conectar();
         $controleInsere->selecionarDB();
@@ -54,7 +54,7 @@ class SecretariaDAO {
         
         //Inserção no tabela filha = Usuário  
         $controleInsere->set('sql', "INSERT INTO secretaria (secretaria_sigla, secretaria_nomePrograma,
-            secretaria_responsavel, secretaria_telefone, secretaria_email) 
+            secretaria_responsavel, secretaria_telefoneContato, secretaria_emailContato) 
     VALUES ('$sigla', '$nomePrograma', '$responsavel','$telefone', '$email' )");
         $result2 = $controleInsere->consulta();
         //adicionando e redirecionando para a página principal.
