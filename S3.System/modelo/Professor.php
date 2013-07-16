@@ -11,9 +11,8 @@ class Professor extends Usuario {
     private $professor_email;
     private $professor_contatoTelefone;
     private $prop;
-    private $value;
-    private $login;
-    private $senha;
+    public $tipo = 3;
+    
 
 //    public $tipo = 2;
 
