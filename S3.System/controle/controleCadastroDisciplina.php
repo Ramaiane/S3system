@@ -24,7 +24,7 @@ if(
 
 /** Verificação OK...Iniciando Cadastro no Banco **/ 
 $newDisciplina = new Disciplina;
-
+$newDisciplinaDAO = new DisciplinaDAO();
 $newDisciplina->set('nome', $_POST['nome']);
 $newDisciplina->set('descricao', $_POST['descricao']);
 $newDisciplina->set('codigo', $_POST['codigo']);
@@ -32,6 +32,10 @@ $newDisciplina->set('vagas', $_POST['vagas']);
 $newDisciplina->set('professor', $_POST['professor']);
 $newDisciplina->set('secretaria', $_SESSION['idUsuario']);
 
+if(null==$newDisciplinaDAO->insereDisciplina($newDisciplina)){
+         header( "refresh:3;url=../interface/index.html" );
+            echo "Usuario Adicionado com Sucesso";
+    }
 
 
 
