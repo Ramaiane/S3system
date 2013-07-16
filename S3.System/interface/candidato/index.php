@@ -1,9 +1,9 @@
 <?php
-include_once("../../controle/AcessoRestrito.php");
+include_once '../../controle/AcessoRestrito.php';
 $objAcesso = new AcessoRestrito;
 $objAcesso->iniciaSessao();
 $objAcesso->set('usuario_tipo', 1);
-$objAcesso->verificaAcesso();
+$objAcesso->verificaAcesso(); 
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -37,7 +37,10 @@ $objAcesso->verificaAcesso();
             <div class="title_welcome"><span class="red">S3 System</span> P&aacute;gina do Candidato.</div>
             <div class="welcome_box">
             <p class="welcome">
-<span class="orange">Seja bem vindo candidato <?php echo $_SESSION['usuario_login']; ?> </span><br />
+<span class="orange">Seja bem vindo candidato <?php echo $_SESSION['usuario_login']; 
+
+
+?> </span><br />
 Este Sistema est&aacute; em desenvolvimento. Favor aguardar futuras releases. Por enquanto s&oacute; pode fazer logoff. 
 			</p>
 </br></br></br>   
