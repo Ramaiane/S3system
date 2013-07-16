@@ -39,8 +39,8 @@ class CandidatoDAO {
         $controleInsere = $this->conexao;
         $controleInsere->set('db', 's3system');
         $controleInsere->set('host', 'localhost');
-        $controleInsere->set('user', 's3system');
-        $controleInsere->set('pass', 'macaco');
+        $controleInsere->set('user', 'root');
+        $controleInsere->set('pass', '');
         $controleInsere->set('sql', "INSERT INTO usuario (usuario_login, usuario_senha, usuario_tipo) 
     VALUES ('$login', '$senha', '$tipo' )");
         
@@ -68,9 +68,9 @@ class CandidatoDAO {
         if ($result2 != 1) {
 	 echo "Erro no cadastro!";
         }else{
-            header( "refresh:3;url=../interface/index.html" );
-            echo "Usuario Adicionado com Sucesso";
+            
             $this->conexao=null;
+            return null;
         }
         
     }
