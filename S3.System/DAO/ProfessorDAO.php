@@ -17,8 +17,8 @@ class ProfessorDAO {
 
     function insereProfessor(Professor $professor) {
 
-        $login = $professor->get('usuario_login');
-        $senha = $professor->get('usuario_senha');
+        $login = $professor->get('login');
+        $senha = $professor->get('senha');
         $tipo = $professor->get('tipo');
         $nome = $professor->get('professor_nome');
         $email = $professor->get('professor_email');

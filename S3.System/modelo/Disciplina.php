@@ -10,45 +10,25 @@
  *
  * @author tainarareis
  */
+include_once 'Professor.php';
+include_once 'Secretaria.php';
 class Disciplina {
     
+   
+    
     //atributos
-    private $orgao;
+    private $professor;
+    private $secretaria;
+    private $nome;
+    private $descricao;
+    private $vagas;
     private $codigo;
-    private $denomicacao;
-    private $nivel;
-    private $vigencia;
-    private $preRequisitos;
-    private $turma;
-    private $numeroVagas;
-    private $turno;
-    private $horario;
-    private $numeroCreditos;
-    private $ementa;
-    private $inscricao;
-    private $prop;
-    private $value;
-    //método construtor
-    public function         __construct($orgao, $codigo, $denominacao, $nivel, $vigencia, $preRequisitos, 
-            $turma, $numeroVagas, $turno, $horario, $numeroCreditos, $ementa, $inscricao) {
-        $this-> orgao= $orgao; 
-        $this-> codigo= $codigo;
-        $this-> denominacao= $denominacao;
-        $this-> nivel= $nivel;
-        $this-> vigencia= $vigencia;
-        $this-> preRequisitos= $preRequisitos;
-        $this-> turma= $turma;
-        $this-> numeroVagas= $numeroVagas;
-        $this-> turno= $turno;
-        $this-> numeroCreditos= $numeroCreditos;
-        $this-> horario= $horario;
-        $this-> ementa= $ementa;
-        $this-> inscricao= $inscricao;
-        
+    
+    public function Disciplina(){
+        $this->professor = new Professor;
+        $this->secretaria = new Secretaria;
     }
-    
-    // setters e getters
-    
+
     public function set($prop, $value){
         $this->$prop = $value;
     }

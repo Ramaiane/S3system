@@ -5,59 +5,38 @@ $objAcesso->iniciaSessao();
 $objAcesso->set('usuario_tipo', 2);
 $objAcesso->verificaAcesso();
 
-include_once("ConexaoBanco.php");
 include_once 'ValidaDados.php';
+include_once '../DAO/DisciplinaDAO.php';
+include_once '../modelo/Disciplina.php';
 
-$login = $_POST['login'];
-$senha = $_POST['senha1'];
+/** Verificação de Dados 
+$objValidaNewDisciplina = new ValidaDadosDisciplina;
 
-/** Verificação de Dados **/
-$objValidaNewDisciplina = new ValidaDadosDisciplina;
-$objValidaNewDisciplina = new ValidaDadosDisciplina;
-if(!$objValidaNewDisciplina->checaCampoEmBranco($_POST['login'])||
-!$objValidaNewDisciplina->checaCampoEmBranco($_POST['senha'])||
-!$objValidaNewDisciplina->checaCampoEmBranco($_POST['disciplina_'])||
-!$objValidaNewDisciplina->checaCampoEmBranco($_POST['denominacao'])||
-!$objValidaNewDisciplina->checaCampoEmBranco($_POST['orgao'])||
+if(
+!$objValidaNewDisciplina->checaCampoEmBranco($_POST['nome'])||
+!$objValidaNewDisciplina->checaCampoEmBranco($_POST['descricao'])||
 !$objValidaNewDisciplina->checaCampoEmBranco($_POST['codigo'])||
-!$objValidaNewDisciplina->checaCampoEmBranco($_POST['nivel'])||
-!$objValidaNewDisciplina->checaCampoEmBranco($_POST['vigencia'])||
-!$objValidaNewDisciplina->checaCampoEmBranco($_POST['preRequisitos'])||
-!$objValidaNewDisciplina->checaCampoEmBranco($_POST['turma'])||
-!$objValidaNewDisciplina->checaCampoEmBranco($_POST['numeroVagas'])||
-!$objValidaNewDisciplina->checaCampoEmBranco($_POST['turno'])||
-!$objValidaNewDisciplina->checaCampoEmBranco($_POST['horario'])||
-!$objValidaNewDisciplina->checaCampoEmBranco($_POST['numeroCreditos'])||
-!$objValidaNewDisciplina->checaCampoEmBranco($_POST['ementa'])||
-!$objValidaNewDisciplina->checaCampoEmBranco($_POST['inscricao'])||
-!$objValidaNewDisciplina->campoNumerico($_POST['codigo'])||
-!$objValidaNewDisciplina->campoNumerico($_POST['numeroVagas'])||
-!$objValidaNewDisciplina->campoNumerico($_POST['horario'])||
-!$objValidaNewDisciplina->campoNumerico($_POST['numeroCreditos'])||
-!$objValidaNewDisciplina->campoNumerico($_POST['inscricao'])){
+!$objValidaNewDisciplina->checaCampoEmBranco($_POST['vagas'])
+){
      header( "refresh:3;url=../interface/cadastro/cadastroCandidato.php" ); 
             echo "Informe todos os campos para prosseguir com cadastro!";
 }
 
 /** Verificação OK...Iniciando Cadastro no Banco **/ 
-$objConexaoNewDisciplina = new ConexaoBanco;
-$objConexaoNewDisciplina->set('db', 's3system');
-$objConexaoNewDisciplina->set('host', 'localhost');
-$objConexaoNewDisciplina->set('user', 'root');       
-$objConexaoNewDisciplina->set('pass', '');
-$objConexaoNewDisciplina->set('sql', "INSERT INTO usuario (usuario_login, usuario_senha, usuario_tipo) 
-                          VALUES ('$login', '$senha', '2' )");  
+$newDisciplina = new Disciplina;
+$newDisciplinaDAO = new DisciplinaDAO;
+$newDisciplina->set('nome', $_POST['nome']);
+$newDisciplina->set('descricao', $_POST['descricao']);
+$newDisciplina->set('codigo', $_POST['codigo']);
+$newDisciplina->set('vagas', $_POST['vagas']);
+$newDisciplina->set('professor', $_POST['professor']);
+$newDisciplina->set('secretaria', $_SESSION['idUsuario']);
+
+if(null==$newDisciplinaDAO->insereDisciplina($newDisciplina)){
+         //header( "refresh:3;url=../interface/index.html" );
+            echo "Usuario Adicionado com Sucesso";
+    }
 
 
-$objConexaoNewDisciplina->conectar();
-$objConexaoNewDisciplina->selecionarDB();
-$resultadoConsultaDisciplina = $objConexaoNewDisciplina->consulta();
-
-if ($resultadoConsultaDisciplina != 1) {
-        echo "Erro no cadastro!";
-        }else{
-          header( "refresh:3;url=../interface/index.html" );
-            echo "Disciplina Adicionada com Sucesso";
-        }
 
 ?>

@@ -52,6 +52,6 @@ $newProfessor->set('professor_email', $_POST['email']);
 
 if (null == $newProfessorDAO->insereProfessor($newProfessor)) {
     header("refresh:3;url=../interface/secretaria/index.php");
-    echo "Usuario Adicionado com Sucesso";
+    
 }
 ?>
