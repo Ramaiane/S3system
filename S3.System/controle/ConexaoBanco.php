@@ -14,8 +14,8 @@
  */
 class ConexaoBanco {
     private $host = 'localhost';
-    private $user = 's3system';
-    private $pass = 'macaco';
+    private $user = 'root';
+    private $pass = '';
     private $db = 's3system';
     private $sql;
     private $con;

@@ -83,7 +83,10 @@ include_once '../DAO/CandidatoDAO.php';
     $newCandidato->set('telefone', $_POST['telefone']);
     $newCandidato->set('conclusao', $_POST['conclusao']);
     
-    $newCandidatoDAO->insereCandidato($newCandidato);
+  if(null==$newCandidatoDAO->insereCandidato($newCandidato)){
+         header( "refresh:3;url=../interface/index.html" );
+            echo "Usuario Adicionado com Sucesso";
+    }
     
     
 ?>

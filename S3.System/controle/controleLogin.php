@@ -18,8 +18,8 @@ $objConexaoBanco = new ConexaoBanco;
 //parametros para conexao com o banco
 $objConexaoBanco->set('db', 's3system');
 $objConexaoBanco->set('host', 'localhost');
-$objConexaoBanco->set('user', 's3system');       
-$objConexaoBanco->set('pass', 'macaco');
+$objConexaoBanco->set('user', 'root');       
+$objConexaoBanco->set('pass', '');
 $objConexaoBanco->set('sql', 'SELECT * FROM `usuario` WHERE usuario_login = "'.$login.'" AND usuario_senha = "'.$senha.'"');
 
 $objConexaoBanco->conectar();
