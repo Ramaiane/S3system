@@ -15,7 +15,7 @@ class ProfessorDAO {
         $this->conexao = new ConexaoBanco;
     }
 
-    function insereProfessor(Candidato $professor) {
+    function insereProfessor(Professor $professor) {
 
         $login = $professor->get('usuario_login');
         $senha = $professor->get('usuario_senha');
@@ -25,10 +25,6 @@ class ProfessorDAO {
         $telefone = $professor->get('professor_contatoTelefone');
 
         $controleInsere = $this->conexao;
-        $controleInsere->set('db', 's3system');
-        $controleInsere->set('host', 'localhost');
-        $controleInsere->set('user', 'root');
-        $controleInsere->set('pass', '');
         $controleInsere->set('sql', "INSERT INTO usuario (usuario_login, usuario_senha, usuario_tipo) 
     VALUES ('$login', '$senha', '$tipo' )");
 
@@ -47,6 +43,7 @@ class ProfessorDAO {
 
         $retorna = max(mysql_fetch_array($temp));
         $idSessao = $_SESSION['idUsuario'];
+        
         $controleInsere->set('sql', "INSERT INTO professor (idUsuario, idSecretaria,
         professor_nome, professor_email, professor_contatoTelefone)
         VALUES ('$retorna', '$idSessao', '$nome','$email', '$telefone' )");
@@ -54,6 +51,7 @@ class ProfessorDAO {
         //adicionando e redirecionando para a página principal.
         if ($result2 != 1) {
             echo "Erro no cadastro!";
+            exit();
         } else {
             //header( "refresh:3;url=../interface/index.html" );
             echo "Usuario Adicionado com Sucesso";
