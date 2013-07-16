@@ -30,6 +30,7 @@ $newDisciplina->set('descricao', $_POST['descricao']);
 $newDisciplina->set('codigo', $_POST['codigo']);
 $newDisciplina->set('vagas', $_POST['vagas']);
 $newDisciplina->set('professor', $_POST['professor']);
+$newDisciplina->set('secretaria', $_SESSION['idUsuario']);
 
 
 
